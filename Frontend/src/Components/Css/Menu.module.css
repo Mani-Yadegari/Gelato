@@ -1,0 +1,324 @@
+/* فونت‌ها */
+@font-face {
+  font-family: "Yekan";
+  src: url(../../assets/Fonts/Yekan.ttf);
+}
+@font-face {
+  font-family: "Lalezar";
+  src: url(../../assets/Fonts/Lalezar.ttf);
+}
+@font-face {
+  font-family: "Pacifico";
+  src: url(../../assets/Fonts/Pacifico.ttf);
+}
+@font-face {
+  font-family: "Berlin";
+  src: url(../../assets/Fonts/BRLNSB.TTF);
+}
+
+* {
+  scroll-behavior: smooth;
+}
+
+/* NavBar */
+header > nav {
+  background-color: #fff;
+  height: 72px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: row-reverse;
+  padding: 0 100px;
+  border-bottom: 1px solid #3f3f3f4d;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 999;
+  box-sizing: border-box;
+}
+header > nav > .logoContainer a {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  flex-direction: row-reverse;
+  gap: 5px;
+  height: 100%;
+}
+
+/* لوگو */
+.logoContainer {
+  height: 100%;
+  align-items: center;
+  gap: 10px;
+}
+.logoContainer img {
+  height: 95%;
+}
+.logoContainer h1 {
+  font-family: "Lalezar";
+  font-size: 27px;
+  font-weight: 100;
+  color: #2e2e2e;
+  transition: all 0.2s ease;
+}
+.logoContainer h1:hover {
+  color: #3d81ce;
+}
+
+/* منوی دسکتاپ */
+.menuContainer {
+  display: flex;
+}
+.menuList {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 50px;
+}
+.menuList li {
+  position: relative;
+}
+.menuList li .links {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  color: #181818;
+  font-family: "Yekan";
+  font-weight: bold;
+  text-decoration: none;
+  font-size: 17px;
+  transition: all 0.25s ease;
+}
+.menuList li .links:hover {
+  color: #3d81ce;
+  transform: translateY(-1px);
+}
+
+/* دارپ‌داون */
+.dropDown {
+  position: absolute;
+  top: 110%;
+  left: -75px;
+  width: 230px;
+  background: #fff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  padding: 20px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+  font-family: "Yekan";
+  font-weight: bold;
+  z-index: 999;
+}
+.dropDown .info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+  border-bottom: 1px solid #3f3f3f4d;
+  width: 100%;
+  font-size: 18px;
+  padding-bottom: 10px;
+  font-family: "Yekan", sans-serif;
+}
+.dropDown .pages {
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+  gap: 20px;
+  width: 100%;
+  padding: 15px 0;
+  border-bottom: 1px solid #3f3f3f4d;
+}
+.dropDown .pages li {
+  list-style: none;
+}
+.dropDown .pages li a {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  text-decoration: none;
+  color: #000;
+  transition: all 0.25s ease;
+}
+.dropDown .pages li a:hover {
+  color: #3d81ce;
+  transform: translateX(-5px);
+}
+.exitBar {
+  padding-top: 10px;
+}
+.exitBar button {
+  background: transparent;
+  border: none;
+  color: red;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 17px;
+  font-family: "Yekan";
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.exitBar button:hover {
+  opacity: 0.8;
+}
+
+/* دکمه ورود */
+#login {
+  background-color: #3d81ce;
+  color: #fff;
+  padding: 6px 20px;
+  border-radius: 30px;
+  font-family: "Yekan", sans-serif;
+  border: 2px solid #3d81ce;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  transition: all 0.25s ease;
+}
+#login:hover {
+  background-color: transparent;
+  color: #3d81ce;
+  box-shadow: 0 0 6px #3d81ce70;
+}
+
+/* دکمه همبرگر موبایل */
+.menuToggle {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  width: 25px;
+  height: 25px;
+  position: relative;
+}
+.menuToggle span {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: #333;
+  transition: all 0.3s ease;
+}
+.menuToggle span:nth-child(1) {
+  top: 0;
+}
+.menuToggle span:nth-child(2) {
+  top: 8px;
+}
+.menuToggle span:nth-child(3) {
+  top: 16px;
+}
+
+/* وقتی منو بازه، تبدیل به ضربدر */
+.menuToggle.active span:nth-child(1) {
+  transform: rotate(45deg);
+  top: 8px;
+  background: #3d81ce;
+}
+.menuToggle.active span:nth-child(2) {
+  opacity: 0;
+}
+.menuToggle.active span:nth-child(3) {
+  transform: rotate(-45deg);
+  top: 8px;
+  background: #3d81ce;
+}
+
+/* منوی موبایل */
+.mobileMenu {
+  display: none;
+}
+
+@media (max-width: 992px) {
+  header > nav {
+    padding: 0 20px;
+  }
+  .menuContainer {
+    display: none;
+  }
+
+  .menuToggle {
+    display: flex;
+  }
+
+  .mobileMenu {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 72px;
+    right: 0;
+    width: 100%;
+    background: linear-gradient(180deg, #ffffff 0%, #f3f6ff 100%);
+    padding: 25px 0;
+    gap: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+    z-index: 1000;
+    animation: slideDown 0.35s ease forwards;
+    align-items: center;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+  }
+  .line {
+    background-color: red;
+    width: 100%;
+    height: 10px;
+  }
+  .mobileMenu a,
+  .mobileMenu button {
+    font-family: "Yekan";
+    font-weight: bold;
+    font-size: 17px;
+    color: #3f3f3f;
+    text-decoration: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 15px;
+    border-radius: 10px;
+  }
+
+  .mobileMenu a:hover {
+    background-color: #3d81ce15;
+    color: #3d81ce;
+    transform: translateY(-2px);
+  }
+  .mobileMenu button:hover {
+    background-color: #3d81ce15;
+    transform: translateY(-2px);
+  }
+  .mobileMenu .line {
+    width: 80%;
+    height: 1px;
+    background: #dcdcdc;
+    margin: 10px 0;
+  }
+
+  .mobileMenu button {
+    color: #d33;
+  }
+
+  .mobileMenu button:hover {
+    background-color: #ffeded;
+    transform: translateY(-2px);
+  }
+
+  @keyframes slideDown {
+    from {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}

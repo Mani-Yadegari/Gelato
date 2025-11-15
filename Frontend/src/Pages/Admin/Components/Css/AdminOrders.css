@@ -1,0 +1,233 @@
+.orders-sec {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 20px 10px;
+  background-color: #f8fafc;
+  direction: rtl;
+}
+
+.orders-sec .content {
+  width: 100%;
+  max-width: 1330px;
+  display: flex;
+  flex-direction: column;
+  border-radius: 16px;
+  border: 1px solid #e1e5ea;
+  direction: ltr;
+  overflow: hidden;
+  background-color: #fff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.orders-sec .content .title {
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  padding: 18px 25px;
+  gap: 6px;
+  background-color: #f1f5f9;
+  border-bottom: 1px solid #e2e8f0;
+  color: #1e293b;
+}
+
+.filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  direction: rtl;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+  padding: 15px 25px;
+  border-bottom: 1px solid #e2e8f0;
+  background-color: #fafafa;
+}
+
+.filter-bar input {
+  flex: 1;
+  min-width: 230px;
+  padding: 10px 15px;
+  font-size: 15px;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  font-family: "Yekan", sans-serif;
+  font-weight: bold;
+  transition: all 0.2s ease;
+}
+
+.filter-bar input:focus {
+  outline: none;
+  border-color: #64748b;
+}
+
+/* 🎨 دکمه‌های فیلتر وضعیت */
+.status-filter {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+.status-filter button {
+  padding: 8px 14px;
+  border-radius: 8px;
+  border: none;
+  font-family: "Yekan";
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: bold;
+  color: #fff;
+  transition: all 0.2s ease;
+}
+
+.status-filter button:hover {
+  transform: scale(1.05);
+}
+
+.status-filter button.active {
+  box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.15);
+}
+
+.status-filter .blue {
+  background-color: #3d81ce;
+}
+.status-filter .yellow {
+  background-color: #d6a21e;
+}
+.status-filter .green {
+  background-color: #1fb154;
+}
+.status-filter .red {
+  background-color: #da3b3b;
+}
+.status-filter button:not(.blue):not(.yellow):not(.green):not(.red) {
+  background-color: #94a3b8;
+}
+
+/* لیست سفارش‌ها */
+.orders-sec .content ul {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-sizing: border-box;
+  overflow: auto;
+}
+
+.orders-sec .content ul li {
+  width: 100%;
+  list-style: none;
+  box-sizing: border-box;
+  border-bottom: 1px solid #e2e8f0;
+  padding: 20px;
+  transition: background-color 0.2s ease;
+}
+
+.orders-sec .content ul li:hover {
+  background-color: #f8fafc;
+}
+
+.orders-sec .top {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 20px;
+  direction: rtl;
+  font-size: 16px;
+  align-items: center;
+  font-weight: 600;
+  color: #0f172a;
+}
+.orders-sec .top p {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.orders-sec .top p a {
+  display: flex;
+  align-items: center;
+  color: #0f172a;
+  gap: 5px;
+  text-decoration: none;
+  transition: all ease 0.2s;
+}
+.orders-sec .top p a:hover {
+  color: #276ab8;
+}
+.orders-sec .top p a span {
+  font-size: 18px;
+}
+.status {
+  padding: 6px 14px;
+  border-radius: 8px;
+  color: #fff;
+  font-weight: bold;
+  border: none;
+  font-family: "Yekan";
+  cursor: pointer;
+}
+
+.status.blue {
+  background-color: #3d81ce;
+}
+.status.yellow {
+  background-color: #d6a21e;
+}
+.status.green {
+  background-color: #1fb154;
+}
+.status.red {
+  background-color: #da3b3b;
+}
+
+.orders-sec .items {
+  width: 100%;
+  background-color: #f1f5f9;
+  border-radius: 10px;
+  padding: 0px 25px;
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+}
+.orders-sec .content > .empty {
+  display: flex;
+  flex-direction: column;
+  direction: rtl;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+}
+.orders-sec .content > .empty > img {
+  width: 200px;
+}
+.orders-sec .content .items .value {
+  display: flex;
+  justify-content: space-between;
+  direction: rtl;
+  font-weight: bold;
+  color: #1e293b;
+  font-size: 16px;
+  border-bottom: 1px dashed #abb4be;
+}
+.orders-sec .content .items .value:hover {
+  background-color: transparent;
+}
+.orders-sec .content .items .value:last-child {
+  border-bottom: none;
+}
+
+/* 📱 ریسپانسیو */
+@media (max-width: 768px) {
+  .filter-bar {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .status-filter {
+    justify-content: center;
+  }
+
+  .top {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}

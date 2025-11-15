@@ -1,0 +1,172 @@
+.users-sec {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 20px 10px;
+  background-color: #f8fafc;
+  direction: rtl;
+}
+
+.users-sec .content {
+  width: 100%;
+  max-width: 1330px;
+  display: flex;
+  flex-direction: column;
+  border-radius: 16px;
+  border: 1px solid #e1e5ea;
+  background-color: #fff;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.users-sec .content .title {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  padding: 18px 25px;
+  background-color: #f1f5f9;
+  border-bottom: 1px solid #e2e8f0;
+  color: #1e293b;
+  font-weight: bold;
+  box-sizing: border-box;
+  gap: 10px;
+}
+.users-sec .content .title h3 {
+  font-size: 24px;
+}
+.filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+  padding: 15px 25px;
+  border-bottom: 1px solid #e2e8f0;
+  background-color: #fafafa;
+}
+
+.filter-bar input {
+  flex: 1;
+  min-width: 230px;
+  padding: 10px 15px;
+  font-size: 15px;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  font-family: "Yekan", sans-serif;
+  font-weight: bold;
+  transition: all 0.2s ease;
+}
+
+.filter-bar input:focus {
+  outline: none;
+  border-color: #64748b;
+}
+
+.users-sec ul {
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  margin: 0;
+}
+
+.users-sec ul li {
+  list-style: none;
+  border-bottom: 1px solid #e2e8f0;
+  padding: 20px 25px;
+  transition: background-color 0.2s ease;
+}
+
+.users-sec ul li:hover {
+  background-color: #f8fafc;
+}
+
+.user-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  direction: rtl;
+  font-weight: 600;
+  color: #0f172a;
+}
+
+.user-info {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  direction: rtl;
+  gap: 10px;
+  color: #1e293b;
+  font-size: 15px;
+  margin-top: 10px;
+}
+.user-info span {
+  display: flex;
+  align-items: center;
+}
+.label {
+  color: #64748b;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+}
+
+.user-actions {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.user-actions button {
+  border: none;
+  border-radius: 8px;
+  padding: 6px 14px;
+  cursor: pointer;
+  font-family: "Yekan";
+  font-weight: bold;
+  transition: all 0.2s ease;
+}
+
+.edit-btn {
+  background-color: #3d81ce;
+  color: #fff;
+}
+
+.delete-btn {
+  background-color: #da3b3b;
+  color: #fff;
+}
+
+.save-btn {
+  background-color: #1fb154;
+  color: #fff;
+}
+
+.cancel-btn {
+  background-color: #94a3b8;
+  color: #fff;
+}
+
+.user-actions button:hover {
+  transform: scale(1.05);
+}
+
+input {
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+  padding: 5px 10px;
+  font-family: "Yekan";
+}
+
+.empty {
+  text-align: center;
+  padding: 60px 0;
+  color: #64748b;
+  font-size: 16px;
+}
+
+@media (max-width: 768px) {
+  .user-info {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}

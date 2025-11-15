@@ -1,0 +1,503 @@
+.products-sec {
+  position: relative;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-start;
+  width: 100%;
+  background-color: #fff;
+  padding: 50px 195px;
+  box-sizing: border-box;
+  gap: 20px;
+  flex-wrap: nowrap;
+}
+
+/* 🛒 ستون سبد خرید */
+.cart-column.default {
+  position: relative;
+  width: 55%;
+}
+
+.cart-column.fixed {
+  position: fixed;
+  top: 100px;
+  width: 420px;
+  left: 195px;
+  z-index: 50;
+}
+
+.cart-column.stopped {
+  position: absolute;
+  width: 420px;
+  bottom: 50px;
+  top: auto;
+  left: 195px;
+}
+
+/* 🍦 ستون محصولات */
+.products-sec > .products-column {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  align-items: flex-end;
+  text-align: right;
+  width: 66%;
+  box-sizing: border-box;
+}
+
+.category-section {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.category-section .title {
+  display: flex;
+  align-items: center;
+  justify-content: end;
+  gap: 10px;
+}
+
+.category-section .title h2 {
+  font-size: 30px;
+  font-family: Lalezar;
+  color: #1e1e1e;
+  border-right: 4px solid #3d81ce;
+  padding-right: 10px;
+}
+
+/* 🧁 محصولات */
+.products-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  gap: 10px;
+  flex-direction: row-reverse;
+}
+
+.product {
+  width: 230px;
+  height: 260px;
+  background-color: #ffffff;
+  border-radius: 12px;
+  border: 1px solid #3f3f3f2c;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: start;
+  overflow: hidden;
+  font-family: Yekan;
+  transition: all ease 0.25s;
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.05);
+}
+.product.unavailable {
+  filter: saturate(0.3);
+  cursor: not-allowed;
+}
+
+.unavailable-text {
+  color: #da3b3b;
+  font-weight: bold;
+}
+
+.product:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.12);
+}
+
+/* 📸 عکس محصول */
+.product > img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+  border-bottom: 1px solid #e6e6e6;
+}
+.product > div {
+  width: 100%;
+}
+/* 🧾 متن محصول */
+.product > div > h3 {
+  font-family: Lalezar;
+  font-size: 18px;
+  margin: 5px 10px 0 0;
+  color: #202020;
+}
+
+.product > div > span {
+  margin-right: 10px;
+  font-size: 17px;
+  font-weight: bold;
+  color: #1278d8;
+}
+
+/* ➕➖ دکمه‌ها */
+.product .button-container {
+  display: flex;
+  width: 100%;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 0 15px;
+  gap: 5px;
+  box-sizing: border-box;
+}
+
+.product .button-container > button {
+  cursor: pointer;
+  color: #000;
+  background-color: transparent;
+  border: none;
+  border-radius: 8px;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all ease 0.2s;
+}
+
+.product .button-container > button:hover {
+  color: #3d81ce;
+  transform: scale(1.1);
+}
+
+.button-container > span {
+  font-size: 17px;
+  font-family: sans-serif;
+}
+/* مودال شناور */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+  animation: fadeIn 0.3s ease;
+}
+
+.product-modal {
+  background: #fff;
+  border-radius: 16px;
+  padding: 20px;
+  width: 90%;
+  max-width: 350px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  position: relative;
+  animation: scaleIn 0.3s ease;
+}
+
+.product-modal img {
+  width: 100%;
+  border-radius: 12px;
+  margin-bottom: 10px;
+}
+
+.product-modal h2 {
+  margin: 10px 0;
+  font-family: "Lalezar";
+  font-size: 22px;
+  font-weight: 100;
+}
+
+.product-modal p {
+  color: #575757;
+  margin-bottom: 10px;
+}
+
+.product-modal .price {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 15px;
+  font-size: 17px;
+  color: #1278d8;
+}
+.product-modal .button-container {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+}
+.product-modal .button-container button {
+  cursor: pointer;
+  color: #000;
+  background-color: transparent;
+  border: none;
+  border-radius: 8px;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all ease 0.2s;
+}
+
+.product-modal .button-container button:hover {
+  color: #3d81ce;
+  transform: scale(1.1);
+}
+.close-btn {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  background: transparent;
+  border: none;
+  font-size: 22px;
+  cursor: pointer;
+  color: #444;
+  transition: all ease 0.3s;
+}
+.close-btn:hover {
+  color: #cf0e0e;
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    transform: scale(0.9);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.cart-btn {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  height: 60px;
+  width: 60px;
+  border-radius: 50%;
+  right: 20px;
+  bottom: 20px;
+  border: none;
+  outline: none;
+  background-color: #1278d8;
+  color: #fff;
+  cursor: pointer;
+  box-shadow: 0px 0px 15px #00000059;
+  transition: all ease 0.2s;
+}
+.cart-btn:hover {
+  background-color: #0f69bd;
+}
+.cart-btn > span {
+  font-size: 30px;
+}
+.cart-modal {
+  background: #fff;
+  border-radius: 14px;
+  padding: 30px !important;
+  max-width: 700px;
+  width: 90%;
+  max-height: 80vh;
+  overflow-y: auto;
+  position: relative;
+}
+
+/* ============================= */
+/* 🌐 ریسپانسیو کامل بدون باگ */
+/* ============================= */
+
+/* 💻 تا 1300px */
+@media (max-width: 1300px) {
+  .products-sec {
+    padding: 40px 100px;
+  }
+
+  .products-sec > .products-column {
+    width: 60%;
+  }
+
+  .products-sec > .cart-column {
+    width: 370px;
+  }
+
+  .cart-column.fixed {
+    left: 100px;
+  }
+}
+
+/* ⚙️ رفع باگ بین 1025 تا 1200px */
+@media (max-width: 1200px) {
+  .products-sec {
+    flex-direction: column-reverse;
+    align-items: center;
+    padding: 40px 50px;
+  }
+
+  .products-sec > .products-column {
+    width: 100%;
+    max-width: none !important;
+    align-items: end;
+  }
+  .products-sec > .products-column > .products-container {
+    width: 100%;
+  }
+  .products-sec > .cart-column {
+    display: none;
+  }
+
+  .cart-column.fixed,
+  .cart-column.sticky {
+    position: relative !important;
+    left: 0;
+    top: 0;
+    bottom: auto;
+  }
+
+  .products-container {
+    justify-content: end;
+  }
+  .cart-btn {
+    display: flex;
+  }
+}
+
+/* 📱 زیر 900px */
+@media (max-width: 900px) {
+  .products-sec {
+    flex-direction: column-reverse;
+    align-items: center;
+    padding: 30px 20px;
+  }
+
+  .products-sec > .products-column {
+    width: 100%;
+    max-width: none !important;
+  }
+  .category-section {
+    width: 100%;
+  }
+
+  .products-container {
+    justify-content: end;
+  }
+
+  .product {
+    width: 200px;
+    height: auto;
+  }
+}
+
+/* 📱 زیر 768px */
+@media (max-width: 768px) {
+  .products-sec {
+    align-items: end;
+    width: 100%;
+    padding: 30px 40px;
+  }
+  .products-column {
+    width: 100%;
+    align-items: center;
+    max-width: 100% !important;
+  }
+  .products-container {
+    justify-content: end;
+    width: 100%;
+  }
+  .category-section {
+    width: 100%;
+  }
+  .product {
+    width: 200px;
+    height: auto;
+    min-width: 200px;
+  }
+  .category-section .title h2 {
+    font-size: 24px;
+  }
+
+  .product > img {
+    height: 140px;
+  }
+  .product > h3 {
+    font-size: 17px;
+  }
+}
+
+/* 📱 زیر 480px */
+@media (max-width: 490px) {
+  .products-sec {
+    padding: 20px 15px;
+    align-items: end;
+  }
+  .category-section {
+    align-items: end;
+  }
+  .category-section .title h2 {
+    font-size: 20px;
+  }
+  .product {
+    width: 45%;
+    border-radius: 10px;
+  }
+  .product > h3 {
+    font-size: 16px;
+  }
+  .product > span {
+    font-size: 15px;
+  }
+  .button-container > span {
+    font-size: 15px;
+  }
+}
+@media (max-width: 445px) {
+  .products-sec {
+    padding: 20px 15px;
+    align-items: end;
+  }
+  .category-section {
+    align-items: end;
+  }
+  .category-section .title h2 {
+    font-size: 20px;
+  }
+  .product {
+    width: 100%;
+    height: 100px;
+    overflow: hidden;
+    border-radius: 10px;
+    flex-direction: row-reverse;
+    justify-content: end;
+  }
+  .product > img {
+    width: 45%;
+    height: 100%;
+    margin: 0;
+  }
+  .product > div {
+    width: 55%;
+    height: 100%;
+  }
+  .product > div > h3 {
+    font-size: 15px;
+  }
+  .product > div > span {
+    font-size: 15px;
+  }
+  .button-container {
+    justify-content: start !important;
+    width: 100%;
+  }
+  .button-container > span {
+    font-size: 15px;
+  }
+  .cart-btn {
+    width: 55px;
+    height: 55px;
+  }
+  .cart-btn span {
+    font-size: 27px;
+  }
+}

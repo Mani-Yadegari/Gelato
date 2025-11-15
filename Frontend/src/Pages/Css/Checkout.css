@@ -1,0 +1,376 @@
+.checkout {
+  padding: 100px 0 30px 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+/* بخش کارت پرداخت */
+.checkout > .checkout-cart {
+  display: flex;
+  align-items: end;
+  flex-direction: column;
+  width: 400px;
+  border: 2px solid #3f3f3f4d;
+  border-radius: 10px;
+  max-height: 450px;
+  box-sizing: border-box;
+  background-color: #fff;
+}
+.checkout > .checkout-cart .empty {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  direction: rtl;
+}
+.checkout > .checkout-cart .empty img {
+  width: 200px;
+}
+.checkout > .checkout-cart .empty > p {
+  color: #001;
+  font-weight: bold;
+}
+.checkout > .checkout-cart > .title {
+  padding: 0 20px;
+  box-sizing: border-box;
+  border-bottom: 1px #3f3f3f4d solid;
+  width: 100%;
+  text-align: right;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: end;
+  gap: 3px;
+}
+
+.checkout > .checkout-cart > ul {
+  width: 100%;
+  list-style: none;
+  height: 200px;
+  overflow: auto;
+}
+
+.checkout > .checkout-cart > ul > li {
+  display: flex;
+  gap: 20px;
+  border-bottom: #3f3f3f4d solid 1px;
+  padding: 0 20px;
+  box-sizing: border-box;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.checkout > .checkout-cart > ul > li > .left {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+.checkout > .checkout-cart > ul > li > .left > button {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+.checkout > .checkout-cart > ul > li > .left > button > span {
+  font-size: 26px;
+  transition: all ease 0.2s;
+}
+.checkout > .checkout-cart > ul > li > .left > button:hover > span {
+  color: #1278d8;
+}
+.checkout > .checkout-cart > ul > li > .left > span {
+  font-family: Poppins;
+  font-size: 17px;
+}
+.checkout > .checkout-cart > ul > li > .right {
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+}
+.checkout > .checkout-cart > ul > li > .right > p {
+  font-size: 19px;
+  font-weight: bold;
+}
+.checkout > .checkout-cart > ul > li > .right > span {
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+}
+
+.checkout > .checkout-cart > .price {
+  width: 100%;
+  padding: 5px 20px;
+  box-sizing: border-box;
+  font-size: 18px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.checkout > .checkout-cart > .checkout-submit {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px 20px;
+  box-sizing: border-box;
+  gap: 10px;
+}
+.checkout > .checkout-cart > .checkout-submit > button {
+  width: 100%;
+  height: 50px;
+  font-size: 20px;
+  font-family: Yekan;
+  font-weight: bold;
+  background-color: #3d81ce;
+  border: #3d81ce 2px solid;
+  border-radius: 10px;
+  color: #fff;
+  cursor: pointer;
+  transition: all ease 0.2s;
+}
+.checkout > .checkout-cart > .checkout-submit > button:hover {
+  background-color: transparent;
+  color: #3d81ce;
+}
+
+/* بخش آدرس */
+.checkout > .checkout-address {
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+  border: #3f3f3f4d solid 2px;
+  border-radius: 10px;
+  width: 400px;
+  background-color: #fff;
+}
+
+.checkout > .checkout-address > .no-address {
+  width: 100%;
+  text-align: center;
+  height: 400px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.checkout > .checkout-address > .no-address > img {
+  width: 200px;
+}
+
+.checkout > .checkout-address > .title {
+  display: flex;
+  padding: 0 20px;
+  border-bottom: #3f3f3f4d 1px solid;
+  width: 100%;
+  justify-content: end;
+  height: 50px;
+  align-items: center;
+  box-sizing: border-box;
+}
+.checkout > .checkout-address > .title > button {
+  font-size: 17px;
+  font-weight: bold;
+  font-family: Yekan;
+  width: 95px;
+  height: 40px;
+  color: #ffff;
+  background-color: #3d81ce;
+  cursor: pointer;
+  border-radius: 10px;
+  border: none;
+  outline: none;
+  transition: all ease 0.2s;
+  border: #3d81ce 2px solid;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+}
+.checkout > .checkout-address > .title > button:hover {
+  background-color: transparent;
+  color: #1278d8;
+}
+.checkout > .checkout-address > .title > div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.checkout > .checkout-address > ul {
+  width: 100%;
+  list-style: none;
+  padding: 0 20px;
+  display: flex;
+  height: 100%;
+  align-items: center;
+  box-sizing: border-box;
+}
+.checkout > .checkout-address > ul > li {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+}
+.checkout > .checkout-address > ul > li > .map {
+  padding: 5px 0;
+  box-sizing: border-box;
+}
+.checkout > .checkout-address > ul > li > .map > iframe {
+  border: none;
+  border-radius: 10px;
+  width: 100%;
+  height: 230px;
+}
+.checkout > .checkout-address > ul > li > .bottom {
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+.checkout > .checkout-address > ul > li > .bottom > div {
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+  font-size: 16px;
+  font-weight: bold;
+}
+.checkout > .checkout-address > ul > li > .bottom > div > h3 {
+  font-size: 20px;
+  font-weight: bold;
+}
+.checkout > .checkout-address > ul > li > .bottom > .actions > button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  font-weight: bold;
+  font-family: Yekan;
+  width: 80px;
+  height: 40px;
+  color: #ffff;
+  background-color: #3d81ce;
+  cursor: pointer;
+  border-radius: 10px;
+  border: none;
+  outline: none;
+  transition: all ease 0.2s;
+  border: #3d81ce 2px solid;
+  gap: 2px;
+}
+.checkout > .checkout-address > ul > li > .bottom > .actions > button:hover {
+  background-color: transparent;
+  border: #3d81ce 2px solid;
+  color: #3d81ce;
+}
+/* ✅ گزینه تحویل حضوری */
+.checkout .pickup-option {
+  width: 100%;
+  padding: 10px 20px;
+  box-sizing: border-box;
+  border-top: 1px solid #3f3f3f20;
+  border-bottom: 1px solid #3f3f3f20;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  background-color: #fafafa;
+}
+
+.checkout .pickup-option label {
+  font-family: Yekan;
+  font-size: 17px;
+  font-weight: bold;
+  color: #222;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.checkout .pickup-option label:hover {
+  color: #3d81ce;
+}
+
+.checkout .pickup-option input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  accent-color: #3d81ce;
+  cursor: pointer;
+}
+
+/* ----------- 📱 ریسپانسیو ----------- */
+@media (max-width: 992px) {
+  .checkout {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .checkout > .checkout-cart,
+  .checkout > .checkout-address {
+    width: 90%;
+    max-width: 500px;
+  }
+
+  .checkout > .checkout-cart > .checkout-submit > button {
+    font-size: 18px;
+  }
+  .checkout .title h2 {
+    font-size: 22px;
+  }
+}
+
+@media (max-width: 600px) {
+  .checkout {
+    padding: 80px 0 20px 0;
+  }
+
+  .checkout > .checkout-cart,
+  .checkout > .checkout-address {
+    width: 95%;
+  }
+
+  .checkout > .checkout-cart > ul > li > .left {
+    justify-content: flex-end;
+  }
+  .checkout > .checkout-cart > ul > li > .right p {
+    font-size: 16px;
+  }
+  .checkout > .checkout-address > ul > li > .bottom {
+    flex-direction: column-reverse;
+    align-items: end;
+    gap: 10px;
+  }
+
+  .checkout > .checkout-address > ul > li > .map > iframe {
+    height: 200px;
+  }
+
+  .checkout > .checkout-cart > .checkout-submit > button {
+    font-size: 17px;
+  }
+  .checkout .pickup-option {
+    justify-content: center;
+  }
+
+  .checkout .pickup-option label {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 350px) {
+  .checkout > .checkout-cart > ul > li {
+    flex-direction: column-reverse;
+    align-items: end;
+    text-align: right;
+  }
+  .checkout > .checkout-cart .price {
+    flex-direction: column-reverse;
+  }
+}

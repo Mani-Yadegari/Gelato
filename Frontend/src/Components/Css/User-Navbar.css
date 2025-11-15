@@ -1,0 +1,144 @@
+/* 🌑 پس‌زمینه navbar */
+.navbar-bg {
+  width: 100%;
+  background-color: #201f1f;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px 0;
+  gap: 25px;
+  box-sizing: border-box;
+}
+
+/* ℹ️ اطلاعات کاربر */
+.navbar-bg > .info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  color: #fff;
+}
+
+.navbar-bg > .info > h1 {
+  font-size: 28px;
+  font-family: "Yekan", sans-serif;
+  font-weight: bold;
+  margin: 0;
+}
+
+.navbar-bg > .info > .phone-number {
+  font-size: 19px;
+  letter-spacing: 1.5px;
+  color: #fff;
+  cursor: default;
+  pointer-events: none;
+}
+
+/* دکمه خروج */
+.navbar-bg > .info > button {
+  font-size: 18px;
+  font-weight: bold;
+  font-family: Yekan, sans-serif;
+  width: 140px;
+  height: 42px;
+  color: #303030;
+  background-color: #fff;
+  border-radius: 10px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.navbar-bg > .info > button:hover {
+  background-color: #d1d1d1;
+  transform: translateY(-1px);
+}
+
+/* 🔗 لینک‌های ناوبری */
+.navbar-bg > .navbar-links {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.navbar-bg > .navbar-links > ul {
+  display: flex;
+  flex-direction: row-reverse;
+  gap: 25px;
+  padding: 0;
+  margin: 0;
+}
+
+.navbar-bg > .navbar-links > ul > li {
+  list-style: none;
+}
+
+.navbar-bg > .navbar-links > ul > li > a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: bold;
+  padding: 5px 10px;
+  transition: all 0.25s ease;
+}
+
+.navbar-bg > .navbar-links > ul > li > a:hover {
+  color: #d1d1d1;
+  transform: translateY(-2px);
+}
+
+/* 📱 ریسپانسیو برای موبایل */
+@media (max-width: 768px) {
+  .navbar-bg {
+    padding: 15px 0;
+    gap: 18px;
+  }
+
+  .navbar-bg > .info > h1 {
+    font-size: 22px;
+  }
+
+  .navbar-bg > .info > .phone-number {
+    font-size: 16px;
+    letter-spacing: 1px;
+  }
+
+  .navbar-bg > .info > button {
+    width: 120px;
+    height: 38px;
+    font-size: 16px;
+  }
+
+  .navbar-bg > .navbar-links > ul {
+    flex-wrap: wrap;
+    gap: 15px;
+    justify-content: center;
+  }
+
+  .navbar-bg > .navbar-links > ul > li > a {
+    font-size: 16px;
+    padding: 4px 8px;
+  }
+}
+
+/* 📱 برای صفحه‌های خیلی کوچک (زیر 480px) */
+@media (max-width: 480px) {
+  .navbar-bg > .info > h1 {
+    font-size: 19px;
+  }
+
+  .navbar-bg > .info > .phone-number {
+    font-size: 15px;
+  }
+
+  .navbar-bg > .info > button {
+    width: 100px;
+    height: 35px;
+    font-size: 15px;
+  }
+
+  .navbar-bg > .navbar-links {
+    display: none;
+  }
+}

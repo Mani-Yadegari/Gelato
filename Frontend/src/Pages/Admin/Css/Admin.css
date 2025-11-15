@@ -1,0 +1,35 @@
+.admin-sec {
+  display: flex;
+  justify-content: space-between;
+  height: 100vh;
+  width: 100%;
+  gap: 10px;
+  background: #f7f8fa;
+  font-family: "Yekan", sans-serif;
+}
+
+/* بخش محتوا */
+.admin-content {
+  display: flex;
+  justify-content: start;
+  width: 100%;
+  background: #f9fafc;
+  overflow-y: auto;
+  direction: rtl;
+}
+
+/* وقتی صفحه بارگذاری میشه */
+.admin-sec.fade-in {
+  animation: fadeIn 0.4s ease-in-out forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

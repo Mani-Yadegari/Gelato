@@ -1,0 +1,102 @@
+.admin-login {
+  width: 100%;
+  height: 100vh;
+  background-color: #ffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: Yekan, Poppins;
+}
+
+.admin-login .login-box {
+  background-color: #ffffff;
+  border: 2px solid #3d81ce;
+  border-radius: 20px;
+  box-shadow: 0 0 20px rgba(61, 129, 206, 0.2);
+  width: 380px;
+  padding: 40px 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 25px;
+  text-align: center;
+}
+
+.admin-login .title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  color: #000;
+}
+
+.admin-login .title h2 {
+  font-size: 22px;
+  font-weight: bold;
+}
+
+.admin-login .title .material-symbols-outlined {
+  font-size: 32px;
+}
+
+.admin-login form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
+}
+
+.admin-login form div {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  width: 100%;
+}
+
+.admin-login label {
+  font-size: 16px;
+  font-weight: bold;
+  color: #000;
+  margin-bottom: 5px;
+}
+
+.admin-login input {
+  width: 100%;
+  height: 38px;
+  border: 2px solid #3d81ce;
+  border-radius: 10px;
+  padding: 0 10px;
+  font-size: 16px;
+  text-align: right;
+  font-family: Yekan, Poppins;
+  transition: all ease 0.2s;
+  outline: none;
+  box-sizing: border-box;
+}
+
+.admin-login input:focus {
+  box-shadow: 0 0 8px rgba(61, 129, 206, 0.5);
+}
+
+.admin-login button {
+  margin-top: 10px;
+  width: 100%;
+  height: 40px;
+  background-color: #3d81ce;
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  font-size: 17px;
+  font-weight: bold;
+  font-family: Yekan;
+  cursor: pointer;
+  transition: all ease 0.2s;
+  border: 2px solid #3d81ce;
+}
+
+.admin-login button:hover {
+  background-color: transparent;
+  color: #3d81ce;
+  border: 2px solid #3d81ce;
+}

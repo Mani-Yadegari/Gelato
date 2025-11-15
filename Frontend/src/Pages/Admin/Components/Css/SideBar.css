@@ -1,0 +1,69 @@
+/* سایدبار */
+.side-bar {
+  width: 15%;
+  background: #ffffff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.08);
+  padding: 20px 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border-left: 2px solid #f0f0f0;
+  direction: rtl;
+  min-width: 135px;
+}
+
+.side-bar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.side-bar li {
+  margin: 10px 0;
+}
+
+.side-bar a {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #555;
+  padding: 10px 20px;
+  text-decoration: none;
+  border-right: 3px solid transparent;
+  transition: 0.3s;
+}
+.side-bar button {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border: none;
+  background-color: #fff;
+  color: #555;
+  font-family: "Yekan";
+  padding: 10px 20px;
+  width: 100%;
+  text-decoration: none;
+  border-right: 3px solid transparent;
+  transition: 0.3s;
+  cursor: pointer;
+}
+.side-bar button:hover {
+  background: #f5f5f5;
+  border-right: 3px solid #0077ff;
+  color: #0077ff;
+}
+.side-bar a:hover {
+  background: #f5f5f5;
+  border-right: 3px solid #0077ff;
+  color: #0077ff;
+}
+
+.side-bar .material-symbols-outlined {
+  font-size: 22px;
+}
+
+.side-bar p {
+  font-size: 15px;
+  font-weight: bold;
+  margin: 0;
+}

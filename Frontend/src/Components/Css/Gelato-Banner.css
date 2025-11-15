@@ -1,0 +1,41 @@
+.gelato-banner {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.gelato-banner > a {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.gelato-banner > a > img {
+  width: 75%;
+  border-radius: 10px;
+  box-shadow: 0 0 10px #00000067;
+  transition: all ease 0.2s;
+}
+.gelato-banner > a > img:hover {
+  transform: scale(1.01);
+  box-shadow: 0 0 20px #0000008f;
+}
+@media (max-width: 1200px) {
+  .gelato-banner > a > img {
+    width: 85%;
+  }
+}
+@media (max-width: 1000px) {
+  .gelato-banner > a > img {
+    width: 90%;
+  }
+}
+@media (max-width: 800px) {
+  .gelato-banner > a > img {
+    width: 95%;
+  }
+}
+@media (max-width: 700px) {
+  .gelato-banner > a > img {
+    width: 98%;
+    /* height: 170px; */
+  }
+}

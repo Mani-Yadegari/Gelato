@@ -1,0 +1,126 @@
+/* ساختار اصلی مثل admin-products-sec */
+.settings-list {
+  display: flex;
+  flex-direction: column;
+  padding: 25px;
+  gap: 25px;
+  direction: rtl;
+}
+
+.setting-item {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  border-bottom: 1px solid #e2e8f0;
+  padding-bottom: 20px;
+}
+
+.setting-item label {
+  color: #475569;
+  font-weight: 600;
+  font-size: 15px;
+}
+
+.setting-item input[type="time"] {
+  width: 200px;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  padding: 8px 10px;
+  font-family: "Yekan", sans-serif;
+  font-size: 14px;
+  background-color: #f9fafb;
+  transition: all 0.2s ease;
+}
+
+.setting-item input[type="time"]:focus {
+  outline: none;
+  border-color: #64748b;
+  background-color: #f1f5f9;
+}
+
+.toggle-container {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.toggle-status {
+  font-weight: bold;
+  font-size: 15px;
+}
+
+.toggle-status.active {
+  color: #16a34a;
+}
+
+.toggle-status.inactive {
+  color: #dc2626;
+}
+
+.toggle-btn {
+  border: none;
+  border-radius: 8px;
+  padding: 8px 14px;
+  cursor: pointer;
+  font-family: "Yekan";
+  font-weight: bold;
+  font-size: 14px;
+  transition: all 0.2s ease;
+}
+
+.toggle-btn.on {
+  background-color: #3d81ce;
+  color: #fff;
+}
+
+.toggle-btn.off {
+  background-color: #da3b3b;
+  color: #fff;
+}
+
+.toggle-btn:hover {
+  transform: scale(1.05);
+}
+
+.setting-actions {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.setting-actions .save-btn {
+  border: none;
+  border-radius: 8px;
+  padding: 10px 16px;
+  cursor: pointer;
+  font-family: "Yekan";
+  font-weight: bold;
+  background-color: #3d81ce;
+  color: #fff;
+  transition: all 0.2s ease;
+}
+
+.save-btn:hover {
+  background-color: #2563eb;
+  transform: scale(1.05);
+}
+
+.setting-actions .status {
+  text-align: center;
+  margin-top: 10px;
+  color: #475569;
+  background-color: #f1f5f9;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 8px 10px;
+  font-size: 14px;
+}
+
+@media (max-width: 768px) {
+  .setting-item input[type="time"] {
+    width: 100%;
+  }
+
+  .setting-actions {
+    justify-content: center;
+  }
+}

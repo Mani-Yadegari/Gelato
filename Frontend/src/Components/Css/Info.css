@@ -1,0 +1,213 @@
+/* =======================
+   فرم اطلاعات کاربری
+======================= */
+.info-bg {
+  padding: 20px 150px;
+  width: 100%;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 30px;
+}
+
+/* فرم */
+.info-bg > form {
+  padding: 0 150px;
+  width: 100%;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 30px;
+}
+
+/* کانتینر ورودی‌ها */
+.info-bg > form > .input-container {
+  display: flex;
+  flex-direction: row-reverse;
+  gap: 30px;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 600px;
+}
+
+/* هر بخش ورودی */
+.info-bg > form > .input-container > div {
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+  box-sizing: border-box;
+  position: relative;
+}
+
+/* برچسب */
+.info-bg > form > .input-container > div > label {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+/* input عمومی */
+.info-bg > form > .input-container > div > input {
+  text-align: right;
+  height: 35px;
+  border: 2px solid #3d81ce;
+  border-radius: 10px;
+  padding: 0 10px;
+  transition: all ease 0.3s;
+  outline: none;
+  font-size: 16px;
+  font-family: Yekan, Poppins;
+  font-weight: bold;
+  width: 250px;
+}
+
+/* input ایمیل */
+.info-bg > form > .input-container > div > input[type="email"] {
+  font-family: Poppins;
+  font-size: 15px;
+}
+
+/* placeholder */
+.info-bg input::placeholder {
+  text-align: right;
+  color: #00000050;
+}
+
+/* focus روی input */
+.info-bg input:focus {
+  border-color: #1a6bc3;
+  box-shadow: 0 0 8px #3d81ce50;
+  transform: scale(1.02);
+}
+
+/* شماره تلفن */
+.info-bg > form > .input-container > .phone-container {
+  position: relative;
+}
+
+/* آیکون قفل */
+.info-bg > form > .input-container > .phone-container > span {
+  position: absolute;
+  left: 10px;
+  top: 34px;
+  color: #000000af;
+  font-size: 24px;
+}
+.info-bg > form > .input-container > .phone-container > input[readonly] {
+  background-color: #ffff;
+  cursor: default;
+  border: 2px solid #3d81ce;
+  transition: all 0.3s;
+}
+
+/* افکت hover */
+.info-bg > form > .input-container > .phone-container:hover input[readonly],
+.info-bg
+  > form
+  > .input-container
+  > .phone-container:focus-within
+  input[readonly] {
+  border-color: #1a6bc3;
+  box-shadow: 0 0 8px #3d81ce50;
+  transform: scale(1);
+}
+
+/* دکمه ذخیره */
+.info-bg > form > button {
+  font-size: 18px;
+  font-weight: bold;
+  font-family: Yekan;
+  width: 150px;
+  height: 45px;
+  color: #fff;
+  background-color: #3d81ce;
+  cursor: pointer;
+  border-radius: 10px;
+  border: 2px solid #3d81ce;
+  outline: none;
+  transition: all ease 0.3s;
+}
+
+/* افکت hover روی دکمه */
+.info-bg > form > button:hover {
+  background-color: transparent;
+  color: #3d81ce;
+  box-shadow: 0 0 8px #3d81ce50;
+  transform: translateY(-2px);
+}
+
+/* ======================
+   ✅ Responsive Design
+====================== */
+
+/* تبلت (1024px به پایین) */
+@media (max-width: 1024px) {
+  .info-bg {
+    padding: 20px 60px;
+  }
+  .info-bg > form {
+    padding: 0 60px;
+  }
+  .info-bg > form > .input-container {
+    width: 100%;
+    gap: 20px;
+  }
+  .info-bg > form > .input-container > div > input {
+    width: 220px;
+  }
+}
+
+/* موبایل بزرگ (768px به پایین) */
+@media (max-width: 768px) {
+  .info-bg {
+    padding: 20px 25px;
+    justify-content: center;
+    align-items: end;
+    box-sizing: border-box;
+  }
+  .info-bg > form {
+    padding: 0;
+  }
+  .info-bg > form > .input-container {
+    width: 100%;
+    gap: 15px;
+    flex-direction: column;
+    box-sizing: border-box;
+    align-items: center;
+  }
+  .info-bg > form > .input-container > div {
+    width: 100%;
+    box-sizing: border-box;
+  }
+  .info-bg > form > .input-container > div > input {
+    width: 100%;
+    box-sizing: border-box;
+  }
+  .info-bg > form > button {
+    width: 100%;
+  }
+}
+
+/* موبایل کوچک (480px به پایین) */
+@media (max-width: 480px) {
+  .info-bg {
+    padding: 15px;
+  }
+  .info-bg > form > .input-container > div > label {
+    font-size: 16px;
+  }
+  .info-bg > form > .input-container > div > input {
+    font-size: 15px;
+    height: 32px;
+  }
+  .info-bg > form > .input-container > .phone-container > span {
+    top: 22px;
+  }
+  .info-bg > form > button {
+    height: 40px;
+    font-size: 16px;
+  }
+}

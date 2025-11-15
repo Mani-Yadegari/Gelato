@@ -1,0 +1,87 @@
+.toast {
+  position: fixed;
+  top: 80px;
+  right: 20px;
+  min-width: 280px;
+  max-width: 380px;
+  background: #fff;
+  border-radius: 12px;
+  padding: 12px 16px;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.15);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  z-index: 9999;
+  animation: fadeIn 0.3s ease;
+  font-family: "Yekan", sans-serif;
+}
+
+.toast-icon {
+  font-size: 22px;
+  margin-left: 6px;
+}
+
+.toast-message {
+  font-size: 17px;
+  font-weight: 800;
+  direction: rtl;
+}
+
+.toast-success {
+  border-right: 5px solid #4caf50;
+}
+.toast-error {
+  border-right: 5px solid #f44336;
+}
+.toast-warning {
+  border-right: 5px solid #ff9800;
+}
+.toast-info {
+  border-right: 5px solid #2196f3;
+}
+.toast-confirm {
+  border-right: 5px solid #2196f3;
+}
+
+.toast-buttons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  font-family: "Yekan";
+}
+
+.toast-btn {
+  border: none;
+  padding: 6px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  font-family: "Yekan";
+  transition: all 0.2s ease;
+}
+
+.toast-btn.confirm {
+  background-color: #4caf50;
+  color: white;
+}
+
+.toast-btn.cancel {
+  background-color: #f44336;
+  color: white;
+}
+
+.toast-btn:hover {
+  opacity: 0.9;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
