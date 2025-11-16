@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Toast from "../Components/Toast.jsx";
 import "./Css/Login.css";
+import Seo from "../Components/Seo.jsx";
 
 export default function Login() {
   const [phone, setPhone] = useState("");
