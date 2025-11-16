@@ -55,7 +55,7 @@ export default function Cart({
   useEffect(() => {
     const fetchSettings = async () => {
       try {
-        const res = await fetch("http://localhost:5000/api/settings");
+        const res = await fetch("https://gelatocafe.ir/api/settings");
         const data = await res.json();
         setSettings(data);
       } catch (err) {

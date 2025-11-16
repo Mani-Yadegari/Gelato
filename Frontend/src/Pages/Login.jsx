@@ -27,7 +27,7 @@ export default function Login() {
     const formattedPhone = formatPhone(phone);
 
     try {
-      const res = await fetch("http://localhost:5000/api/auth/check-phone", {
+      const res = await fetch("https://gelatocafe.ir/api/auth/check-phone", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ phone: formattedPhone }),
@@ -39,7 +39,7 @@ export default function Login() {
           navigate("/password", { state: { phone: formattedPhone } });
         } else {
           const codeRes = await fetch(
-            "http://localhost:5000/api/auth/send-code",
+            "https://gelatocafe.ir/api/auth/send-code",
             {
               method: "POST",
               headers: { "Content-Type": "application/json" },

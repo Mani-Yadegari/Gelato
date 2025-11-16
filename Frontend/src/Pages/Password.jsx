@@ -30,7 +30,7 @@ export default function Password({ setUser }) {
     setLoading(true);
 
     try {
-      const res = await fetch("http://localhost:5000/api/auth/login", {
+      const res = await fetch("https://gelatocafe.ir/api/auth/login", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ phone, password }),
@@ -57,7 +57,7 @@ export default function Password({ setUser }) {
 
         try {
           const ordersRes = await fetch(
-            `http://localhost:5000/api/orders/user/${userWithoutAddress._id}`,
+            `https://gelatocafe.ir/api/orders/user/${userWithoutAddress._id}`,
             {
               headers: { Authorization: `Bearer ${data.token}` },
             }
@@ -97,7 +97,7 @@ export default function Password({ setUser }) {
 
     try {
       const res = await fetch(
-        "http://localhost:5000/api/auth/forgot-password",
+        "https://gelatocafe.ir/api/auth/forgot-password",
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },

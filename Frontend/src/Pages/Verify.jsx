@@ -38,7 +38,7 @@ export default function Verify() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await fetch("http://localhost:5000/api/auth/verify-code", {
+      const res = await fetch("https://gelatocafe.ir/api/auth/verify-code", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ phone, code }),
@@ -70,7 +70,7 @@ export default function Verify() {
     }
 
     try {
-      const res = await fetch("http://localhost:5000/api/auth/send-code", {
+      const res = await fetch("https://gelatocafe.ir/api/auth/send-code", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ phone }),

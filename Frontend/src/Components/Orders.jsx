@@ -27,7 +27,7 @@ export default function Orders() {
         }
 
         const res = await axios.get(
-          `http://localhost:5000/api/orders/user/${userData._id}`
+          `https://gelatocafe.ir/api/orders/user/${userData._id}`
         );
 
         setOrders(Array.isArray(res.data) ? res.data : []);

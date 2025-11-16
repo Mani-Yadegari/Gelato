@@ -29,7 +29,7 @@ export default function Addresses() {
   const handleDelete = () => {
     showToast("آیا از حذف آدرس مطمئن هستید؟", "confirm", async () => {
       try {
-        const res = await fetch("http://localhost:5000/api/auth/address", {
+        const res = await fetch("https://gelatocafe.ir/api/auth/address", {
           method: "DELETE",
           headers: {
             "Content-Type": "application/json",

@@ -54,7 +54,7 @@ export default function Info({ user, setUser, token: propToken }) {
     }
 
     try {
-      const res = await fetch("http://localhost:5000/api/auth/me", {
+      const res = await fetch("https://gelatocafe.ir/api/auth/me", {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",

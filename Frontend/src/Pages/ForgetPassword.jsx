@@ -22,7 +22,7 @@ export default function ForgetPassword() {
   const handleVerifyAndReset = async (e) => {
     e.preventDefault();
     try {
-      const res = await fetch("http://localhost:5000/api/auth/reset-password", {
+      const res = await fetch("https://gelatocafe.ir/api/auth/reset-password", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ phone, code, newPassword }),
@@ -56,7 +56,7 @@ export default function ForgetPassword() {
 
   const handleResendCode = async () => {
     try {
-      const res = await fetch("http://localhost:5000/api/auth/resend-code", {
+      const res = await fetch("https://gelatocafe.ir/api/auth/resend-code", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ phone }),

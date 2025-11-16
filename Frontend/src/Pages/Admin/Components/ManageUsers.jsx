@@ -19,7 +19,7 @@ const ManageUsers = () => {
 
   const fetchUsers = async () => {
     try {
-      const res = await axios.get("http://localhost:5000/api/manage-users");
+      const res = await axios.get("https://gelatocafe.ir/api/manage-users");
       setUsers(res.data);
       setAllUsers(res.data); // ✅ ذخیره نسخه اصلی
     } catch (err) {
@@ -39,7 +39,7 @@ const ManageUsers = () => {
 
   const handleDelete = async (id) => {
     if (window.confirm("آیا مطمئنی می‌خوای این کاربر رو حذف کنی؟")) {
-      await axios.delete(`http://localhost:5000/api/manage-users/${id}`);
+      await axios.delete(`https://gelatocafe.ir/api/manage-users/${id}`);
       fetchUsers();
     }
   };
@@ -48,7 +48,7 @@ const ManageUsers = () => {
     try {
       if (editingUser) {
         await axios.put(
-          `http://localhost:5000/api/manage-users/${editingUser}`,
+          `https://gelatocafe.ir/api/manage-users/${editingUser}`,
           form
         );
       }

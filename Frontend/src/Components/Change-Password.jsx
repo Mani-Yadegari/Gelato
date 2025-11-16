@@ -48,7 +48,7 @@ export default function ChangePassword({ user: propUser, token: propToken }) {
 
     try {
       const res = await fetch(
-        "http://localhost:5000/api/auth/change-password",
+        "https://gelatocafe.ir/api/auth/change-password",
         {
           method: "PUT",
           headers: {

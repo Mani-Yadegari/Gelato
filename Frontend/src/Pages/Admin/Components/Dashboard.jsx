@@ -43,7 +43,7 @@ export default function Dashboard() {
           return;
         }
 
-        const res = await axios.get("http://localhost:5000/api/admin/stats", {
+        const res = await axios.get("https://gelatocafe.ir/api/admin/stats", {
           headers: { Authorization: `Bearer ${token}` },
         });
 

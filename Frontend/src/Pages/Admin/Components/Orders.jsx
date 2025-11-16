@@ -16,7 +16,7 @@ export default function Orders() {
 
   useEffect(() => {
     axios
-      .get("http://localhost:5000/api/orders")
+      .get("https://gelatocafe.ir/api/orders")
       .then((res) => setOrders(Array.isArray(res.data) ? res.data : []))
       .catch((err) => console.log("خطا در دریافت سفارش‌ها:", err));
   }, []);
@@ -25,7 +25,7 @@ export default function Orders() {
 
   const handleStatusChange = (orderId, newStatus) => {
     axios
-      .put(`http://localhost:5000/api/orders/${orderId}`, {
+      .put(`https://gelatocafe.ir/api/orders/${orderId}`, {
         status: newStatus,
       })
       .then(() => {

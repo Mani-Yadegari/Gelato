@@ -31,7 +31,7 @@ export default function ManageProducts() {
 
   const fetchProducts = async () => {
     try {
-      const res = await axios.get("http://localhost:5000/api/products");
+      const res = await axios.get("https://gelatocafe.ir/api/products");
       setProducts(res.data);
     } catch (err) {
       console.error("❌ خطا در دریافت محصولات:", err);
@@ -61,7 +61,7 @@ export default function ManageProducts() {
       if (editForm.newImage) formData.append("image", editForm.newImage);
 
       await axios.put(
-        `http://localhost:5000/api/manage-products/${editingId}`,
+        `https://gelatocafe.ir/api/manage-products/${editingId}`,
         formData,
         { headers: { "Content-Type": "multipart/form-data" } }
       );
@@ -85,7 +85,7 @@ export default function ManageProducts() {
   const handleDelete = async (id) => {
     if (window.confirm("آیا از حذف این محصول مطمئنی؟")) {
       try {
-        await axios.delete(`http://localhost:5000/api/manage-products/${id}`);
+        await axios.delete(`https://gelatocafe.ir/api/manage-products/${id}`);
         fetchProducts();
       } catch (err) {
         console.error("❌ خطا در حذف محصول:", err);
@@ -109,7 +109,7 @@ export default function ManageProducts() {
       formData.append("description", newProduct.description);
       if (newProduct.image) formData.append("image", newProduct.image);
 
-      await axios.post("http://localhost:5000/api/manage-products", formData, {
+      await axios.post("https://gelatocafe.ir/api/manage-products", formData, {
         headers: { "Content-Type": "multipart/form-data" },
       });
 
@@ -229,7 +229,7 @@ export default function ManageProducts() {
                 <li key={p._id}>
                   <div className="product-row">
                     <img
-                      src={`http://localhost:5000${p.image}?t=${Date.now()}`}
+                      src={`https://gelatocafe.ir${p.image}?t=${Date.now()}`}
                       alt={p.name}
                       className="product-img"
                     />

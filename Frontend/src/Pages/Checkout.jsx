@@ -39,7 +39,7 @@ export default function Checkout() {
     setAddresses(savedAddresses);
 
     axios
-      .get("http://localhost:5000/api/products")
+      .get("https://gelatocafe.ir/api/products")
       .then((res) => setProducts(res.data))
       .catch(() =>
         setToast({
@@ -150,7 +150,7 @@ export default function Checkout() {
           createdAt: new Date().toISOString(),
         };
 
-        await axios.post("http://localhost:5000/api/orders", orderData, {
+        await axios.post("https://gelatocafe.ir/api/orders", orderData, {
           headers: { Authorization: `Bearer ${token}` },
         });
 
