@@ -10,7 +10,7 @@ export default function Products({ quantities, setQuantities }) {
   const [isCartModalOpen, setIsCartModalOpen] = useState(false);
   const cartRef = useRef(null);
 
-  const BACKEND_URL = "http://localhost:5000";
+  const BACKEND_URL = "https://gelatocafe.ir/api";
 
   // افزایش تعداد
   const addBtn = (id) =>

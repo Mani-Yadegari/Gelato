@@ -3,7 +3,7 @@ import axios from "axios";
 import "./Css/Settings.css";
 
 export default function Settings() {
-  const BACKEND_URL = "http://localhost:5000";
+  const BACKEND_URL = "https://gelatocafe.ir/api";
   const [openingHour, setOpeningHour] = useState("09:00");
   const [closingHour, setClosingHour] = useState("23:00");
   const [siteActive, setSiteActive] = useState(true);
