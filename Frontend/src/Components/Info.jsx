@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import "./Css/Info.css";
 import Toast from "./Toast.jsx";
+import Seo from "./Seo.jsx";
 
 export default function Info({ user, setUser, token: propToken }) {
   const [formData, setFormData] = useState({
@@ -87,57 +88,64 @@ export default function Info({ user, setUser, token: propToken }) {
   };
 
   return (
-    <div className="info-bg">
-      <form onSubmit={handleSubmit}>
-        <div className="input-container">
-          <div>
-            <label htmlFor="name">نام</label>
-            <input
-              type="text"
-              id="name"
-              value={formData.name}
-              onChange={handleChange}
-              required
-            />
+    <>
+      <Seo
+        title="اطلاعات من | کافه جلاتو"
+        description="به‌روزرسانی اطلاعات شخصی و حساب کاربری در کافه جلاتو"
+        url="https://gelatocafe.ir/user/info"
+      />
+      <div className="info-bg">
+        <form onSubmit={handleSubmit}>
+          <div className="input-container">
+            <div>
+              <label htmlFor="name">نام</label>
+              <input
+                type="text"
+                id="name"
+                value={formData.name}
+                onChange={handleChange}
+                required
+              />
+            </div>
+            <div>
+              <label htmlFor="lastName">نام خانوادگی</label>
+              <input
+                type="text"
+                id="lastName"
+                value={formData.lastName}
+                onChange={handleChange}
+                required
+              />
+            </div>
+            <div className="phone-container">
+              <label htmlFor="phone">شماره موبایل</label>
+              <input type="tel" id="phone" value={formData.phone} readOnly />
+              <span className="material-symbols-outlined">lock</span>
+            </div>
+            <div>
+              <label htmlFor="email">ایمیل</label>
+              <input
+                type="email"
+                id="email"
+                value={formData.email}
+                onChange={handleChange}
+              />
+            </div>
           </div>
-          <div>
-            <label htmlFor="lastName">نام خانوادگی</label>
-            <input
-              type="text"
-              id="lastName"
-              value={formData.lastName}
-              onChange={handleChange}
-              required
-            />
-          </div>
-          <div className="phone-container">
-            <label htmlFor="phone">شماره موبایل</label>
-            <input type="tel" id="phone" value={formData.phone} readOnly />
-            <span className="material-symbols-outlined">lock</span>
-          </div>
-          <div>
-            <label htmlFor="email">ایمیل</label>
-            <input
-              type="email"
-              id="email"
-              value={formData.email}
-              onChange={handleChange}
-            />
-          </div>
-        </div>
-        <button type="submit">ذخیره</button>
-      </form>
+          <button type="submit">ذخیره</button>
+        </form>
 
-      {/* 📢 Toast بالا سمت راست */}
-      {toast && (
-        <div className="toast-container-top-right">
-          <Toast
-            type={toast.type}
-            message={toast.message}
-            onClose={() => setToast(null)}
-          />
-        </div>
-      )}
-    </div>
+        {/* 📢 Toast بالا سمت راست */}
+        {toast && (
+          <div className="toast-container-top-right">
+            <Toast
+              type={toast.type}
+              message={toast.message}
+              onClose={() => setToast(null)}
+            />
+          </div>
+        )}
+      </div>
+    </>
   );
 }

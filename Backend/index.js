@@ -1,7 +1,7 @@
+import dotenv from "dotenv";
 import express from "express";
 import mongoose from "mongoose";
 import cors from "cors";
-import dotenv from "dotenv";
 import authRoutes from "./routes/auth.js";
 import productsRoutes from "./routes/products.js";
 import orderRoutes from "./routes/orderRoutes.js";
@@ -37,7 +37,7 @@ app.use("/api/settings", settingsRoutes);
 app.get("/", (req, res) => {
   res.send("API is running...");
 });
-
+console.log("MONGO_URI:", process.env.MONGO_URI);
 mongoose
   .connect(process.env.MONGO_URI, {
     useNewUrlParser: true,

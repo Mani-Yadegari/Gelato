@@ -4,6 +4,7 @@ import "./Css/Checkout.css";
 import axios from "axios";
 import NoAddressImg from "/images/NoAddress.jpg";
 import Toast from "../Components/Toast.jsx";
+import Seo from "../Components/Seo.jsx";
 
 export default function Checkout() {
   const [cart, setCart] = useState({});
@@ -205,137 +206,148 @@ export default function Checkout() {
   };
 
   return (
-    <section className="checkout">
-      {toast && (
-        <Toast
-          type={toast.type}
-          message={toast.message}
-          onClose={toast.onClose}
-          onConfirm={toast.onConfirm}
-        />
-      )}
-
-      <div className="checkout-cart">
-        <div className="title">
-          <span className="material-symbols-outlined">check_circle</span>
-          <h2>تکمیل سفارش</h2>
-        </div>
-
-        {cartItems.length === 0 ? (
-          <p>سبد خرید خالی است.</p>
-        ) : (
-          <ul>
-            {cartItems.map((item) => (
-              <li key={item._id}>
-                <div className="left">
-                  <button id="add" onClick={() => addBtn(item._id)}>
-                    <span className="material-symbols-outlined">
-                      add_circle
-                    </span>
-                  </button>
-                  <span>{item.quantity}</span>
-                  <button onClick={() => subBtn(item._id)}>
-                    <span className="material-symbols-outlined">
-                      do_not_disturb_on
-                    </span>
-                  </button>
-                </div>
-
-                <div className="right">
-                  <p>{item.name}</p>
-                  <span>{item.price.toLocaleString()} تومان</span>
-                </div>
-              </li>
-            ))}
-          </ul>
+    <>
+      <Seo
+        title="تکمیل سفارش | کافه جلاتو"
+        description="مشاهده سبد خرید و ثبت نهایی سفارش‌ها در کافه جلاتو"
+        url="https://gelatocafe.ir/checkout"
+      />
+      <section className="checkout">
+        {toast && (
+          <Toast
+            type={toast.type}
+            message={toast.message}
+            onClose={toast.onClose}
+            onConfirm={toast.onConfirm}
+          />
         )}
 
-        <div className="price">
-          <p>{totalPrice.toLocaleString()} تومان</p>
-          <p className="total">مبلغ قابل پرداخت</p>
-        </div>
-
-        {/* ✅ گزینه تحویل حضوری */}
-        <div className="pickup-option">
-          <label>
-            <input
-              type="checkbox"
-              checked={isPickup}
-              onChange={(e) => setIsPickup(e.target.checked)}
-            />
-            تحویل حضوری از فروشگاه
-          </label>
-        </div>
-
-        <div className="checkout-submit">
-          <p>زمان ارسال سفارش ۴۰ دقیقه می‌باشد</p>
-          <button
-            onClick={handleSubmitOrder}
-            disabled={isPaying || cartItems.length === 0}
-          >
-            {isPaying ? "در حال پرداخت..." : "ثبت نهایی سفارش"}
-          </button>
-        </div>
-      </div>
-
-      {/* ✅ نمایش آدرس فقط وقتی تحویل حضوری فعال نیست */}
-      {!isPickup && (
-        <div className="checkout-address">
-          <div
-            className="title"
-            style={
-              addresses.length === 0 ? { justifyContent: "space-between" } : {}
-            }
-          >
-            {addresses.length === 0 ? (
-              <button type="button" onClick={handleAddAddress}>
-                افزودن آدرس
-              </button>
-            ) : null}
-            <div>
-              <span className="material-symbols-outlined">location_on</span>
-              <h2>آدرس تحویل</h2>
-            </div>
+        <div className="checkout-cart">
+          <div className="title">
+            <span className="material-symbols-outlined">check_circle</span>
+            <h2>تکمیل سفارش</h2>
           </div>
 
-          {addresses.length === 0 ? (
-            <div className="no-address">
-              <img src={NoAddressImg} alt="No Address" />
-              <h3>آدرسی ثبت نشده است</h3>
-            </div>
+          {cartItems.length === 0 ? (
+            <p>سبد خرید خالی است.</p>
           ) : (
-            <ul className="address-list">
-              {addresses.map((address, index) => (
-                <li key={index}>
-                  <div className="map">
-                    <iframe
-                      title={`map-${index}`}
-                      src={`https://neshan.org/maps/iframe/places/_bv5-jPxL2FP#c35.839-50.995-18z-0p/${address.lat}/${address.lng}`}
-                      width="350"
-                      height="230"
-                      allowFullScreen
-                      loading="lazy"
-                    ></iframe>
+            <ul>
+              {cartItems.map((item) => (
+                <li key={item._id}>
+                  <div className="left">
+                    <button id="add" onClick={() => addBtn(item._id)}>
+                      <span className="material-symbols-outlined">
+                        add_circle
+                      </span>
+                    </button>
+                    <span>{item.quantity}</span>
+                    <button onClick={() => subBtn(item._id)}>
+                      <span className="material-symbols-outlined">
+                        do_not_disturb_on
+                      </span>
+                    </button>
                   </div>
-                  <div className="bottom">
-                    <div>
-                      <h3>{address.title}</h3>
-                      <p>{address.description}</p>
-                      {address.extraDesc && <p>{address.extraDesc}</p>}
-                    </div>
-                    <div className="actions">
-                      <button type="button" onClick={handleEditAddress}>
-                        <span className="material-symbols-outlined">edit</span>
-                        <p>ویرایش</p>
-                      </button>
-                    </div>
+
+                  <div className="right">
+                    <p>{item.name}</p>
+                    <span>{item.price.toLocaleString()} تومان</span>
                   </div>
                 </li>
               ))}
             </ul>
           )}
+
+          <div className="price">
+            <p>{totalPrice.toLocaleString()} تومان</p>
+            <p className="total">مبلغ قابل پرداخت</p>
+          </div>
+
+          {/* ✅ گزینه تحویل حضوری */}
+          <div className="pickup-option">
+            <label>
+              <input
+                type="checkbox"
+                checked={isPickup}
+                onChange={(e) => setIsPickup(e.target.checked)}
+              />
+              تحویل حضوری از فروشگاه
+            </label>
+          </div>
+
+          <div className="checkout-submit">
+            <p>زمان ارسال سفارش ۴۰ دقیقه می‌باشد</p>
+            <button
+              onClick={handleSubmitOrder}
+              disabled={isPaying || cartItems.length === 0}
+            >
+              {isPaying ? "در حال پرداخت..." : "ثبت نهایی سفارش"}
+            </button>
+          </div>
         </div>
-      )}
-    </section>
+
+        {/* ✅ نمایش آدرس فقط وقتی تحویل حضوری فعال نیست */}
+        {!isPickup && (
+          <div className="checkout-address">
+            <div
+              className="title"
+              style={
+                addresses.length === 0
+                  ? { justifyContent: "space-between" }
+                  : {}
+              }
+            >
+              {addresses.length === 0 ? (
+                <button type="button" onClick={handleAddAddress}>
+                  افزودن آدرس
+                </button>
+              ) : null}
+              <div>
+                <span className="material-symbols-outlined">location_on</span>
+                <h2>آدرس تحویل</h2>
+              </div>
+            </div>
+
+            {addresses.length === 0 ? (
+              <div className="no-address">
+                <img src={NoAddressImg} alt="No Address" />
+                <h3>آدرسی ثبت نشده است</h3>
+              </div>
+            ) : (
+              <ul className="address-list">
+                {addresses.map((address, index) => (
+                  <li key={index}>
+                    <div className="map">
+                      <iframe
+                        title={`map-${index}`}
+                        src={`https://neshan.org/maps/iframe/places/_bv5-jPxL2FP#c35.839-50.995-18z-0p/${address.lat}/${address.lng}`}
+                        width="350"
+                        height="230"
+                        allowFullScreen
+                        loading="lazy"
+                      ></iframe>
+                    </div>
+                    <div className="bottom">
+                      <div>
+                        <h3>{address.title}</h3>
+                        <p>{address.description}</p>
+                        {address.extraDesc && <p>{address.extraDesc}</p>}
+                      </div>
+                      <div className="actions">
+                        <button type="button" onClick={handleEditAddress}>
+                          <span className="material-symbols-outlined">
+                            edit
+                          </span>
+                          <p>ویرایش</p>
+                        </button>
+                      </div>
+                    </div>
+                  </li>
+                ))}
+              </ul>
+            )}
+          </div>
+        )}
+      </section>
+    </>
   );
 }

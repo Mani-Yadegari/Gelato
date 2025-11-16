@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import "./Css/Change-Password.css";
 import Toast from "./Toast.jsx";
+import Seo from "./Seo.jsx"; // اضافه شد
 
 export default function ChangePassword({ user: propUser, token: propToken }) {
   const [user, setUser] = useState(null);
@@ -90,57 +91,66 @@ export default function ChangePassword({ user: propUser, token: propToken }) {
   if (!user) return <p className="login-msg">لطفا وارد شوید</p>;
 
   return (
-    <div className="password-bg">
-      <form onSubmit={handleSubmit}>
-        <div className="title-container">
-          <h2 className="title">تغییر رمز عبور</h2>
-          <span className="material-symbols-outlined">lock_reset</span>
-        </div>
+    <>
+      <Seo
+        title="تغییر رمز عبور | Gelato Cafe"
+        description="صفحه تغییر رمز عبور برای کاربران ثبت نام شده کافه جلاتو"
+        url="https://gelatocafe.ir/user/change-password"
+      />
 
-        <div className="input-container">
-          <label htmlFor="prevPass">رمز عبور فعلی</label>
-          <input
-            type="password"
-            id="prevPass"
-            value={formData.prevPass}
-            onChange={handleChange}
-            required
-          />
+      <div className="password-bg">
+        <form onSubmit={handleSubmit}>
+          <div className="title-container">
+            <h2 className="title">تغییر رمز عبور</h2>
+            <span className="material-symbols-outlined" aria-label="رمز عبور">
+              lock_reset
+            </span>
+          </div>
 
-          <label htmlFor="newPass">رمز عبور جدید</label>
-          <input
-            type="password"
-            id="newPass"
-            value={formData.newPass}
-            onChange={handleChange}
-            required
-          />
+          <div className="input-container">
+            <label htmlFor="prevPass">رمز عبور فعلی</label>
+            <input
+              type="password"
+              id="prevPass"
+              value={formData.prevPass}
+              onChange={handleChange}
+              required
+            />
 
-          <label htmlFor="newPassRepeat">تکرار رمز عبور جدید</label>
-          <input
-            type="password"
-            id="newPassRepeat"
-            value={formData.newPassRepeat}
-            onChange={handleChange}
-            required
-          />
-        </div>
+            <label htmlFor="newPass">رمز عبور جدید</label>
+            <input
+              type="password"
+              id="newPass"
+              value={formData.newPass}
+              onChange={handleChange}
+              required
+            />
 
-        <button type="submit" disabled={submitting}>
-          {submitting ? "در حال ذخیره..." : "ذخیره تغییرات"}
-        </button>
-      </form>
+            <label htmlFor="newPassRepeat">تکرار رمز عبور جدید</label>
+            <input
+              type="password"
+              id="newPassRepeat"
+              value={formData.newPassRepeat}
+              onChange={handleChange}
+              required
+            />
+          </div>
 
-      {/* نمایش Toast */}
-      {toast && (
-        <div className="toast-container-top-right">
-          <Toast
-            type={toast.type}
-            message={toast.message}
-            onClose={() => setToast(null)}
-          />
-        </div>
-      )}
-    </div>
+          <button type="submit" disabled={submitting}>
+            {submitting ? "در حال ذخیره..." : "ذخیره تغییرات"}
+          </button>
+        </form>
+
+        {toast && (
+          <div className="toast-container-top-right">
+            <Toast
+              type={toast.type}
+              message={toast.message}
+              onClose={() => setToast(null)}
+            />
+          </div>
+        )}
+      </div>
+    </>
   );
 }

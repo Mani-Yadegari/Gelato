@@ -67,40 +67,47 @@ export default function Login() {
   };
 
   return (
-    <section className="login-sec">
-      <div className="login-box" style={{ height: "240px" }}>
-        <h2>
-          <span className="material-symbols-outlined">account_circle</span> ورود
-          به حساب
-        </h2>
-        <form onSubmit={handleSubmit}>
-          <div className="input-container">
-            <label htmlFor="phone">
-              <span className="material-symbols-outlined">call</span> شماره
-              موبایل
-            </label>
-            <input
-              id="phone"
-              type="tel"
-              value={phone}
-              pattern="^09\d{9}$"
-              onChange={(e) => setPhone(e.target.value)}
-              required
-            />
-          </div>
-          <button type="submit" disabled={loading || disabled}>
-            {loading ? "در حال بررسی..." : "ادامه"}
-          </button>
-        </form>
-      </div>
+    <>
+      <Seo
+        title="ورود | کافه جلاتو"
+        description="ورود به حساب کاربری کافه جلاتو برای مشاهده سفارش‌ها و مدیریت اطلاعات شخصی"
+        url="https://gelatocafe.ir/login"
+      />
+      <section className="login-sec">
+        <div className="login-box" style={{ height: "240px" }}>
+          <h2>
+            <span className="material-symbols-outlined">account_circle</span>{" "}
+            ورود به حساب
+          </h2>
+          <form onSubmit={handleSubmit}>
+            <div className="input-container">
+              <label htmlFor="phone">
+                <span className="material-symbols-outlined">call</span> شماره
+                موبایل
+              </label>
+              <input
+                id="phone"
+                type="tel"
+                value={phone}
+                pattern="^09\d{9}$"
+                onChange={(e) => setPhone(e.target.value)}
+                required
+              />
+            </div>
+            <button type="submit" disabled={loading || disabled}>
+              {loading ? "در حال بررسی..." : "ادامه"}
+            </button>
+          </form>
+        </div>
 
-      {toast && (
-        <Toast
-          type={toast.type}
-          message={toast.message}
-          onClose={() => setToast(null)}
-        />
-      )}
-    </section>
+        {toast && (
+          <Toast
+            type={toast.type}
+            message={toast.message}
+            onClose={() => setToast(null)}
+          />
+        )}
+      </section>
+    </>
   );
 }
