@@ -10,8 +10,8 @@ export default function Products({ quantities, setQuantities }) {
   const [isCartModalOpen, setIsCartModalOpen] = useState(false);
   const cartRef = useRef(null);
 
-  const API_URL = "https://gelatocafe.ir/api"; // برای درخواست API
-  const BASE_URL = "https://gelatocafe.ir"; // برای تصاویر
+  const API_URL = "https://gelatocafe.ir/api"; // مسیر API
+  const BASE_URL = "https://gelatocafe.ir/images"; // مسیر تصاویر از backend
 
   // افزایش تعداد
   const addBtn = (id) =>
@@ -40,7 +40,6 @@ export default function Products({ quantities, setQuantities }) {
           grouped[p.category].push(p);
         });
 
-        // محصولات ناموجود به آخر
         Object.keys(grouped).forEach((cat) => {
           grouped[cat].sort((a, b) =>
             a.available === false ? 1 : b.available === false ? -1 : 0
@@ -49,7 +48,7 @@ export default function Products({ quantities, setQuantities }) {
 
         setCategories(grouped);
       } catch (err) {
-        console.error(err);
+        console.error("خطا در دریافت محصولات:", err);
       }
     };
     fetchProducts();
@@ -68,13 +67,9 @@ export default function Products({ quantities, setQuantities }) {
       const maxScroll = footer ? footer.offsetTop - cartHeight - 20 : Infinity;
       const scrollY = window.scrollY;
 
-      if (scrollY >= maxScroll) {
-        setCartPosition("stopped");
-      } else if (scrollY >= 450) {
-        setCartPosition("fixed");
-      } else {
-        setCartPosition("default");
-      }
+      if (scrollY >= maxScroll) setCartPosition("stopped");
+      else if (scrollY >= 450) setCartPosition("fixed");
+      else setCartPosition("default");
     };
 
     window.addEventListener("scroll", handleScroll);
@@ -120,7 +115,10 @@ export default function Products({ quantities, setQuantities }) {
                   }`}
                   onClick={() => setSelectedProduct(elem)}
                 >
-                  <img src={`${BASE_URL}${elem.image}`} alt={elem.name} />
+                  <img
+                    src={`${BASE_URL}/${elem.image.split("/").pop()}`}
+                    alt={elem.name}
+                  />
                   <div>
                     <h3>{elem.name}</h3>
                     {elem.available ? (
@@ -177,7 +175,7 @@ export default function Products({ quantities, setQuantities }) {
               ✖
             </button>
             <img
-              src={`${BASE_URL}${selectedProduct.image}`}
+              src={`${BASE_URL}/${selectedProduct.image.split("/").pop()}`}
               alt={selectedProduct.name}
             />
             <h2>{selectedProduct.name}</h2>
