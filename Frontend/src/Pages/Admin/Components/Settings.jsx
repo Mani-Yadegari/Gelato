@@ -12,7 +12,7 @@ export default function Settings() {
   useEffect(() => {
     const fetchSettings = async () => {
       try {
-        const res = await axios.get(`${BACKEND_URL}/api/settings`);
+        const res = await axios.get(`${BACKEND_URL}/settings`);
         if (res.data) {
           setOpeningHour(res.data.openingHour || "09:00");
           setClosingHour(res.data.closingHour || "23:00");
@@ -27,7 +27,7 @@ export default function Settings() {
 
   const saveSettings = async () => {
     try {
-      await axios.post(`${BACKEND_URL}/api/settings`, {
+      await axios.post(`${BACKEND_URL}/settings`, {
         openingHour,
         closingHour,
         siteActive,

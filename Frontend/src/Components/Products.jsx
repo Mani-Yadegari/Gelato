@@ -10,7 +10,8 @@ export default function Products({ quantities, setQuantities }) {
   const [isCartModalOpen, setIsCartModalOpen] = useState(false);
   const cartRef = useRef(null);
 
-  const BACKEND_URL = "https://gelatocafe.ir/api";
+  const API_URL = "https://gelatocafe.ir/api"; // برای درخواست API
+  const BASE_URL = "https://gelatocafe.ir"; // برای تصاویر
 
   // افزایش تعداد
   const addBtn = (id) =>
@@ -30,7 +31,7 @@ export default function Products({ quantities, setQuantities }) {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const res = await axios.get(`${BACKEND_URL}/api/products`);
+        const res = await axios.get(`${API_URL}/products`);
         const products = res.data;
         const grouped = {};
 
@@ -70,10 +71,9 @@ export default function Products({ quantities, setQuantities }) {
       if (scrollY >= maxScroll) {
         setCartPosition("stopped");
       } else if (scrollY >= 450) {
-        // شروع fixed از 100px پایین صفحه
         setCartPosition("fixed");
       } else {
-        setCartPosition("default"); // برگشت سریعتر به بالا
+        setCartPosition("default");
       }
     };
 
@@ -120,7 +120,7 @@ export default function Products({ quantities, setQuantities }) {
                   }`}
                   onClick={() => setSelectedProduct(elem)}
                 >
-                  <img src={`${BACKEND_URL}${elem.image}`} alt={elem.name} />
+                  <img src={`${BASE_URL}${elem.image}`} alt={elem.name} />
                   <div>
                     <h3>{elem.name}</h3>
                     {elem.available ? (
@@ -177,7 +177,7 @@ export default function Products({ quantities, setQuantities }) {
               ✖
             </button>
             <img
-              src={`${BACKEND_URL}${selectedProduct.image}`}
+              src={`${BASE_URL}${selectedProduct.image}`}
               alt={selectedProduct.name}
             />
             <h2>{selectedProduct.name}</h2>
