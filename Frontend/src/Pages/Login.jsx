@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import Toast from "../Components/Toast.jsx";
 import "./Css/Login.css";
 import Seo from "../Components/Seo.jsx";
+import { API_URL } from "../api.js";
 
 export default function Login() {
   const [phone, setPhone] = useState("");
@@ -13,8 +14,8 @@ export default function Login() {
 
   // ✅ sanitize شماره موبایل
   const formatPhone = (input) => {
-    let p = input.trim().replace(/\s/g, ""); // حذف فاصله‌ها
-    if (p.startsWith("+98")) p = "0" + p.slice(3); // تبدیل +98 به 0
+    let p = input.trim().replace(/\s/g, "");
+    if (p.startsWith("+98")) p = "0" + p.slice(3);
     return p;
   };
 
@@ -28,25 +29,24 @@ export default function Login() {
     const formattedPhone = formatPhone(phone);
 
     try {
-      const res = await fetch("https://gelatocafe.ir/api/auth/check-phone", {
+      const res = await fetch(`${API_URL}/auth/check-phone`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ phone: formattedPhone }),
       });
+
       const data = await res.json();
 
-      if (res.ok || data.exists !== undefined) {
+      if (res.ok) {
         if (data.exists) {
           navigate("/password", { state: { phone: formattedPhone } });
         } else {
-          const codeRes = await fetch(
-            "https://gelatocafe.ir/api/auth/send-code",
-            {
-              method: "POST",
-              headers: { "Content-Type": "application/json" },
-              body: JSON.stringify({ phone: formattedPhone }),
-            }
-          );
+          const codeRes = await fetch(`${API_URL}/auth/send-code`, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ phone: formattedPhone }),
+          });
+
           const codeData = await codeRes.json();
           if (!codeRes.ok) throw new Error(codeData.error || "خطا در ارسال کد");
 
@@ -72,7 +72,7 @@ export default function Login() {
       <Seo
         title="ورود | کافه جلاتو"
         description="ورود به حساب کاربری کافه جلاتو برای مشاهده سفارش‌ها و مدیریت اطلاعات شخصی"
-        url="https://gelatocafe.ir/login"
+        url="http://localhost:5173/login"
       />
       <section className="login-sec">
         <div className="login-box" style={{ height: "240px" }}>
