@@ -10,24 +10,23 @@ export default function Products({ quantities, setQuantities }) {
   const [isCartModalOpen, setIsCartModalOpen] = useState(false);
   const cartRef = useRef(null);
 
-  const API_URL = "https://gelatocafe.ir/api"; // برای درخواست API
-  const BASE_URL = "https://gelatocafe.ir"; // برای تصاویر
+  const API_URL = "https://gelatocafe.ir/api";
 
-  // افزایش تعداد
+  // مسیر تصاویر Backend و Frontend
+  const BASE_URL_BACKEND = "https://gelatocafe.ir/images/backend";
+  const BASE_URL_FRONTEND = "https://gelatocafe.ir/images/frontend";
+
   const addBtn = (id) =>
     setQuantities((prev) => ({ ...prev, [id]: (prev[id] || 0) + 1 }));
 
-  // کاهش تعداد
   const subBtn = (id) =>
     setQuantities((prev) => ({
       ...prev,
       [id]: prev[id] > 0 ? prev[id] - 1 : 0,
     }));
 
-  // پاک کردن سبد
   const clearCart = () => setQuantities({});
 
-  // دریافت محصولات
   useEffect(() => {
     const fetchProducts = async () => {
       try {
@@ -40,7 +39,6 @@ export default function Products({ quantities, setQuantities }) {
           grouped[p.category].push(p);
         });
 
-        // محصولات ناموجود به آخر
         Object.keys(grouped).forEach((cat) => {
           grouped[cat].sort((a, b) =>
             a.available === false ? 1 : b.available === false ? -1 : 0
@@ -49,7 +47,7 @@ export default function Products({ quantities, setQuantities }) {
 
         setCategories(grouped);
       } catch (err) {
-        console.error(err);
+        console.error("Error fetching products:", err);
       }
     };
     fetchProducts();
@@ -57,7 +55,6 @@ export default function Products({ quantities, setQuantities }) {
 
   const allProducts = Object.values(categories).flat();
 
-  // کنترل موقعیت سبد هنگام اسکرول
   useEffect(() => {
     const handleScroll = () => {
       const cart = cartRef.current;
@@ -68,13 +65,9 @@ export default function Products({ quantities, setQuantities }) {
       const maxScroll = footer ? footer.offsetTop - cartHeight - 20 : Infinity;
       const scrollY = window.scrollY;
 
-      if (scrollY >= maxScroll) {
-        setCartPosition("stopped");
-      } else if (scrollY >= 450) {
-        setCartPosition("fixed");
-      } else {
-        setCartPosition("default");
-      }
+      if (scrollY >= maxScroll) setCartPosition("stopped");
+      else if (scrollY >= 450) setCartPosition("fixed");
+      else setCartPosition("default");
     };
 
     window.addEventListener("scroll", handleScroll);
@@ -85,6 +78,13 @@ export default function Products({ quantities, setQuantities }) {
       window.removeEventListener("resize", handleScroll);
     };
   }, []);
+
+  const getImageUrl = (imageName, isBackend = true) => {
+    if (!imageName) return "";
+    return isBackend
+      ? `${BASE_URL_BACKEND}/${imageName.split("/").pop()}`
+      : `${BASE_URL_FRONTEND}/${imageName.split("/").pop()}`;
+  };
 
   return (
     <section className="products-sec">
@@ -102,9 +102,9 @@ export default function Products({ quantities, setQuantities }) {
         {Object.entries(categories).map(([categoryName, products]) => (
           <div key={categoryName} className="category-section">
             <div className="title">
-              <div className="line"></div>
+              <div className="line" />
               <h2>{categoryName}</h2>
-              <div className="line"></div>
+              <div className="line" />
             </div>
 
             <div className="products-container">
@@ -120,7 +120,7 @@ export default function Products({ quantities, setQuantities }) {
                   }`}
                   onClick={() => setSelectedProduct(elem)}
                 >
-                  <img src={`${BASE_URL}${elem.image}`} alt={elem.name} />
+                  <img src={getImageUrl(elem.image, true)} alt={elem.name} />
                   <div>
                     <h3>{elem.name}</h3>
                     {elem.available ? (
@@ -177,11 +177,11 @@ export default function Products({ quantities, setQuantities }) {
               ✖
             </button>
             <img
-              src={`${BASE_URL}${selectedProduct.image}`}
+              src={getImageUrl(selectedProduct.image, true)}
               alt={selectedProduct.name}
             />
             <h2>{selectedProduct.name}</h2>
-            <p>{selectedProduct.description || "بدون توضیحات"}</p>
+            <p>{selectedProduct.description || "No description"}</p>
             <span className="price">
               {selectedProduct.available
                 ? `تومان ${selectedProduct.price.toLocaleString()}`
