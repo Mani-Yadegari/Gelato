@@ -10,23 +10,24 @@ export default function Products({ quantities, setQuantities }) {
   const [isCartModalOpen, setIsCartModalOpen] = useState(false);
   const cartRef = useRef(null);
 
-  const API_URL = "https://gelatocafe.ir/api";
+  const API_URL = "https://gelatocafe.ir/api"; // مسیر API
+  const BASE_URL = "https://gelatocafe.ir";
 
-  // مسیر تصاویر Backend و Frontend
-  const BASE_URL_BACKEND = "https://gelatocafe.ir/images/backend";
-  const BASE_URL_FRONTEND = "https://gelatocafe.ir/images/frontend";
-
+  // افزایش تعداد
   const addBtn = (id) =>
     setQuantities((prev) => ({ ...prev, [id]: (prev[id] || 0) + 1 }));
 
+  // کاهش تعداد
   const subBtn = (id) =>
     setQuantities((prev) => ({
       ...prev,
       [id]: prev[id] > 0 ? prev[id] - 1 : 0,
     }));
 
+  // پاک کردن سبد
   const clearCart = () => setQuantities({});
 
+  // دریافت محصولات
   useEffect(() => {
     const fetchProducts = async () => {
       try {
@@ -47,7 +48,7 @@ export default function Products({ quantities, setQuantities }) {
 
         setCategories(grouped);
       } catch (err) {
-        console.error("Error fetching products:", err);
+        console.error("خطا در دریافت محصولات:", err);
       }
     };
     fetchProducts();
@@ -55,6 +56,7 @@ export default function Products({ quantities, setQuantities }) {
 
   const allProducts = Object.values(categories).flat();
 
+  // کنترل موقعیت سبد هنگام اسکرول
   useEffect(() => {
     const handleScroll = () => {
       const cart = cartRef.current;
@@ -79,13 +81,6 @@ export default function Products({ quantities, setQuantities }) {
     };
   }, []);
 
-  const getImageUrl = (imageName, isBackend = true) => {
-    if (!imageName) return "";
-    return isBackend
-      ? `${BASE_URL_BACKEND}/${imageName.split("/").pop()}`
-      : `${BASE_URL_FRONTEND}/${imageName.split("/").pop()}`;
-  };
-
   return (
     <section className="products-sec">
       <div className={`cart-column ${cartPosition}`} ref={cartRef}>
@@ -102,9 +97,9 @@ export default function Products({ quantities, setQuantities }) {
         {Object.entries(categories).map(([categoryName, products]) => (
           <div key={categoryName} className="category-section">
             <div className="title">
-              <div className="line" />
+              <div className="line"></div>
               <h2>{categoryName}</h2>
-              <div className="line" />
+              <div className="line"></div>
             </div>
 
             <div className="products-container">
@@ -120,7 +115,8 @@ export default function Products({ quantities, setQuantities }) {
                   }`}
                   onClick={() => setSelectedProduct(elem)}
                 >
-                  <img src={getImageUrl(elem.image, true)} alt={elem.name} />
+                  {console.log(elem.image)}
+                  <img src={`${BASE_URL}${elem.image}`} alt={elem.name} />
                   <div>
                     <h3>{elem.name}</h3>
                     {elem.available ? (
@@ -177,11 +173,11 @@ export default function Products({ quantities, setQuantities }) {
               ✖
             </button>
             <img
-              src={getImageUrl(selectedProduct.image, true)}
+              src={`${BASE_URL}${selectedProduct.image}`}
               alt={selectedProduct.name}
             />
             <h2>{selectedProduct.name}</h2>
-            <p>{selectedProduct.description || "No description"}</p>
+            <p>{selectedProduct.description || "بدون توضیحات"}</p>
             <span className="price">
               {selectedProduct.available
                 ? `تومان ${selectedProduct.price.toLocaleString()}`
