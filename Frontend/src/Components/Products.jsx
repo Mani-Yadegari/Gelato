@@ -115,7 +115,6 @@ export default function Products({ quantities, setQuantities }) {
                   }`}
                   onClick={() => setSelectedProduct(elem)}
                 >
-                  {console.log(elem.image)}
                   <img src={`${BASE_URL}${elem.image}`} alt={elem.name} />
                   <div>
                     <h3>{elem.name}</h3>
