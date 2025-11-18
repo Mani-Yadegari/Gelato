@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import Banner from "/images/Banner.png";
+import Banner from "../assets/Banner.png";
 import "./Css/Gelato-Banner.css";
 export default function GelatoBanner() {
   return (

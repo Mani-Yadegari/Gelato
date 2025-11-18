@@ -5,7 +5,7 @@ import dayjs from "dayjs";
 import jalaliday from "jalaliday";
 import "dayjs/locale/fa";
 import axios from "axios";
-import NoOrderIMG from "/images/NoOrder.png";
+import NoOrderIMG from "../assets/NoOrder.png";
 
 dayjs.extend(jalaliday);
 dayjs.locale("fa");

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./Css/Addresses.css";
-import NoAddressImg from "/images/NoAddress.jpg";
+import NoAddressImg from "../assets/NoAddress.jpg";
 import Toast from "./Toast.jsx";
 import Seo from "./Seo.jsx"; // اضافه شد
 

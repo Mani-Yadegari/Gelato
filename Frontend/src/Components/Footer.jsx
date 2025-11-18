@@ -1,9 +1,9 @@
 import { Link } from "react-router-dom";
 import "./Css/Footer.css";
-import Telgram from "/images/Telegram.png";
-import Whatsapp from "/images/Whatsapp.png";
-import Instagram from "/images/Instagram.png";
-import Phone from "/images/Phone.png";
+import Telgram from "../assets/Telegram.png";
+import Whatsapp from "../assets/Whatsapp.png";
+import Instagram from "../assets/Instagram.png";
+import Phone from "../assets/Phone.png";
 export default function Footer() {
   return (
     <footer id="footer">
