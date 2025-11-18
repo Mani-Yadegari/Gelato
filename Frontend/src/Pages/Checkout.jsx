@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./Css/Checkout.css";
 import axios from "axios";
-import NoAddressImg from "/images/NoAddress.jpg";
+import NoAddressImg from "../assets/NoAddress.jpg";
 import Toast from "../Components/Toast.jsx";
 import Seo from "../Components/Seo.jsx";
 

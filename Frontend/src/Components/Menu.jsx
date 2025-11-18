@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import styles from "./Css/Menu.module.css";
-import Logo from "../../../Backend/images/Logo.png";
+import Logo from "../assets/Logo.png";
 import { useNavigate } from "react-router-dom";
 import { useState, useEffect, useRef } from "react";
 import Toast from "./Toast.jsx"; // استفاده از Toast موجود
