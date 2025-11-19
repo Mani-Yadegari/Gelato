@@ -96,6 +96,10 @@ export default function Info({ user, setUser, token: propToken }) {
       />
       <div className="info-bg">
         <form onSubmit={handleSubmit}>
+          <div className="info-title-container">
+            <span className="material-symbols-outlined">person</span>
+            <p className="info-title">اطلاعات کاربری</p>
+          </div>
           <div className="input-container">
             <div>
               <label htmlFor="name">نام</label>

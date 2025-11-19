@@ -190,12 +190,13 @@
   }
 
   .addresses-bg > .container > .title {
-    flex-direction: column;
     align-items: center;
-    justify-content: center;
     gap: 12px;
     padding: 15px;
     text-align: center;
+  }
+  .addresses-bg > .container > .title h2 {
+    font-size: 22px;
   }
 
   .addresses-bg > .container > .title > button {
@@ -262,8 +263,14 @@
 }
 /* 📱 خیلی کوچک‌تر از 400px (مثلاً گوشی‌های کوچک) */
 @media (max-width: 400px) {
+  .addresses-bg > .container > .title h2 {
+    font-size: 20px;
+  }
+  .addresses-bg > .container > .title span {
+    font-size: 24px;
+  }
   .addresses-bg > .container > .title > button {
-    width: 100%;
+    width: 110px;
   }
 
   .addresses-bg > .container > ul > li > .buttons {
@@ -273,5 +280,17 @@
   .addresses-bg > .container > ul > li > .buttons > button {
     width: 100%;
     max-width: none;
+  }
+}
+
+@media (max-width: 350px) {
+  .addresses-bg > .container > .title {
+    flex-direction: column-reverse;
+  }
+  .addresses-bg > .container > .title h2 {
+    font-size: 22px;
+  }
+  .addresses-bg > .container > .title > button {
+    width: 100%;
   }
 }
