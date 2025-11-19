@@ -72,7 +72,7 @@ export default function Login() {
       <Seo
         title="ورود | کافه جلاتو"
         description="ورود به حساب کاربری کافه جلاتو برای مشاهده سفارش‌ها و مدیریت اطلاعات شخصی"
-        url="http://localhost:5173/login"
+        url="gelatocafe.ir/login"
       />
       <section className="login-sec">
         <div className="login-box" style={{ height: "240px" }}>
