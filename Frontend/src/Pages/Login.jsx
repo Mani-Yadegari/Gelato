@@ -4,6 +4,7 @@ import Toast from "../Components/Toast.jsx";
 import "./Css/Login.css";
 import Seo from "../Components/Seo.jsx";
 import { API_URL } from "../api.js";
+import { Helmet } from "react-helmet";
 
 export default function Login() {
   const [phone, setPhone] = useState("");
@@ -12,6 +13,7 @@ export default function Login() {
   const [toast, setToast] = useState(null);
   const navigate = useNavigate();
 
+  // sanitize شماره موبایل
   const formatPhone = (input) => {
     let p = input.trim().replace(/\s/g, "");
     if (p.startsWith("+98")) p = "0" + p.slice(3);
@@ -68,12 +70,17 @@ export default function Login() {
 
   return (
     <>
+      {/* SEO برای گوگل */}
       <Seo
         title="ورود | کافه جلاتو"
         description="ورود به حساب کاربری کافه جلاتو"
         url="https://gelatocafe.ir/login"
       />
-      <meta name="robots" content="noindex, nofollow" />
+
+      {/* robots noindex برای جلوگیری از ایندکس شدن صفحه */}
+      <Helmet>
+        <meta name="robots" content="noindex, nofollow" />
+      </Helmet>
 
       <section className="login-sec">
         <div className="login-box" style={{ height: "240px" }}>
