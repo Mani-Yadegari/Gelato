@@ -12,7 +12,6 @@ export default function Login() {
   const [toast, setToast] = useState(null);
   const navigate = useNavigate();
 
-  // ✅ sanitize شماره موبایل
   const formatPhone = (input) => {
     let p = input.trim().replace(/\s/g, "");
     if (p.startsWith("+98")) p = "0" + p.slice(3);
@@ -71,30 +70,34 @@ export default function Login() {
     <>
       <Seo
         title="ورود | کافه جلاتو"
-        description="ورود به حساب کاربری کافه جلاتو برای مشاهده سفارش‌ها و مدیریت اطلاعات شخصی"
-        url="gelatocafe.ir/login"
+        description="ورود به حساب کاربری کافه جلاتو"
+        url="https://gelatocafe.ir/login"
       />
+      <meta name="robots" content="noindex, nofollow" />
+
       <section className="login-sec">
         <div className="login-box" style={{ height: "240px" }}>
           <h2>
-            <span className="material-symbols-outlined">account_circle</span>{" "}
+            <span className="material-symbols-outlined">account_circle</span>
             ورود به حساب
           </h2>
+
           <form onSubmit={handleSubmit}>
             <div className="input-container">
               <label htmlFor="phone">
-                <span className="material-symbols-outlined">call</span> شماره
-                موبایل
+                <span className="material-symbols-outlined">call</span>
+                شماره موبایل
               </label>
               <input
                 id="phone"
                 type="tel"
                 value={phone}
-                pattern="^09\d{9}$"
+                pattern="^09\\d{9}$"
                 onChange={(e) => setPhone(e.target.value)}
                 required
               />
             </div>
+
             <button type="submit" disabled={loading || disabled}>
               {loading ? "در حال بررسی..." : "ادامه"}
             </button>
