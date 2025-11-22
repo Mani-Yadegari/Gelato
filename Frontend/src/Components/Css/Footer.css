@@ -16,7 +16,7 @@ footer > .footer-container {
   padding: 40px 180px;
   box-sizing: border-box;
   width: 100%;
-  gap: 60px;
+  gap: 20px;
   border-bottom: 1px solid #aaaaaa48;
   flex-wrap: wrap;
 }
@@ -200,6 +200,7 @@ footer > .bottom {
     flex-direction: column-reverse;
     align-items: center;
     text-align: center;
+    gap: 40px;
   }
   footer > .footer-container > .left > .title h2 {
     font-size: 22px;
