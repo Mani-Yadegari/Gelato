@@ -71,7 +71,7 @@ export default function Orders() {
 
           {orders.length === 0 ? (
             <div className="empty">
-              <img src={NoOrderIMG} alt="No Order" />
+              <img src={NoOrderIMG} alt="No Order" loading="lazy" />
               <h3>هیچ سفارشی ثبت نشده است.</h3>
             </div>
           ) : (

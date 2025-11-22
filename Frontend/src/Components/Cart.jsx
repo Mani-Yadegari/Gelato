@@ -125,7 +125,7 @@ export default function Cart({
 
         {cartItems.length === 0 ? (
           <div className="null">
-            <img src={ShoppingBasket} alt="سبد خرید" />
+            <img src={ShoppingBasket} alt="سبد خرید" loading="lazy" />
             <p>سبد خرید خالی است!</p>
           </div>
         ) : (

@@ -309,7 +309,7 @@ export default function Checkout() {
 
             {addresses.length === 0 ? (
               <div className="no-address">
-                <img src={NoAddressImg} alt="No Address" />
+                <img src={NoAddressImg} alt="No Address" loading="lazy" />
                 <h3>آدرسی ثبت نشده است</h3>
               </div>
             ) : (

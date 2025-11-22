@@ -110,7 +110,11 @@ export default function Products({ quantities, setQuantities }) {
                   }`}
                   onClick={() => setSelectedProduct(elem)}
                 >
-                  <img src={`${BASE_URL}${elem.image}`} alt={elem.name} />
+                  <img
+                    src={`${BASE_URL}${elem.image}`}
+                    alt={elem.name}
+                    loading="lazy"
+                  />
                   <div>
                     <h3>{elem.name}</h3>
                     {elem.available ? (

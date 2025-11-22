@@ -193,7 +193,7 @@ export default function AddressPicker({
           </MapContainer>
 
           <div className="center-marker">
-            <img src={iconUrl} alt="marker" />
+            <img src={iconUrl} alt="marker" loading="lazy" />
           </div>
 
           <button className="gps-btn-map" onClick={handleGPS}>

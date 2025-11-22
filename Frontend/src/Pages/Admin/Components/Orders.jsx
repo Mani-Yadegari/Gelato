@@ -123,7 +123,7 @@ export default function Orders() {
 
         {filteredOrders.length === 0 ? (
           <div className="empty">
-            <img src={NoOrderIMG} alt="No Order" />
+            <img src={NoOrderIMG} alt="No Order" loading="lazy" />
             <h3>هیچ سفارشی یافت نشد.</h3>
           </div>
         ) : (

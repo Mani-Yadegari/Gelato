@@ -6,7 +6,7 @@ export default function GelatoBanner() {
     <>
       <div className="gelato-banner">
         <Link className="pic">
-          <img src={Banner} alt="" />
+          <img src={Banner} alt="" loading="lazy" />
         </Link>
       </div>
     </>

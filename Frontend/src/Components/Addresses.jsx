@@ -117,7 +117,7 @@ export default function Addresses() {
               </li>
             ) : (
               <div className="no-address">
-                <img src={NoAddressImg} alt="No saved address" />
+                <img src={NoAddressImg} alt="No saved address" loading="lazy" />
                 <h3>آدرسی ثبت نشده است</h3>
               </div>
             )}
