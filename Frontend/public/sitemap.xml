@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <!-- صفحه اصلی -->
+  <url>
+    <loc>https://gelatocafe.ir/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+
+  <!-- بخش محصولات (کامپوننت در صفحه اصلی) -->
+  <url>
+    <loc>https://gelatocafe.ir/#products</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- بخش تماس -->
+  <url>
+    <loc>https://gelatocafe.ir/#contact</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <!-- بخش سبد خرید -->
+  <url>
+    <loc>https://gelatocafe.ir/#cart</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+</urlset>

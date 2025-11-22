@@ -111,7 +111,7 @@ export default function Cart({
   };
 
   return (
-    <section>
+    <section id="cart">
       <div className="container">
         <div className="title-container">
           <button onClick={handleClearCart}>

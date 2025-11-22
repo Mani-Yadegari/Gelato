@@ -44,7 +44,7 @@ export default function Footer() {
               <Link>پشتیبانی</Link>
             </li>
           </ul>
-          <div className="contact">
+          <div className="contact" id="contact">
             <h2>
               ارتباط با ما
               <span className="material-symbols-outlined">call</span>

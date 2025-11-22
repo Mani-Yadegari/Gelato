@@ -10,24 +10,20 @@ export default function Products({ quantities, setQuantities }) {
   const [isCartModalOpen, setIsCartModalOpen] = useState(false);
   const cartRef = useRef(null);
 
-  const API_URL = "https://gelatocafe.ir/api"; // مسیر API
+  const API_URL = "https://gelatocafe.ir/api";
   const BASE_URL = "https://gelatocafe.ir";
 
-  // افزایش تعداد
   const addBtn = (id) =>
     setQuantities((prev) => ({ ...prev, [id]: (prev[id] || 0) + 1 }));
 
-  // کاهش تعداد
   const subBtn = (id) =>
     setQuantities((prev) => ({
       ...prev,
       [id]: prev[id] > 0 ? prev[id] - 1 : 0,
     }));
 
-  // پاک کردن سبد
   const clearCart = () => setQuantities({});
 
-  // دریافت محصولات
   useEffect(() => {
     const fetchProducts = async () => {
       try {
@@ -56,7 +52,6 @@ export default function Products({ quantities, setQuantities }) {
 
   const allProducts = Object.values(categories).flat();
 
-  // کنترل موقعیت سبد هنگام اسکرول
   useEffect(() => {
     const handleScroll = () => {
       const cart = cartRef.current;
@@ -82,7 +77,7 @@ export default function Products({ quantities, setQuantities }) {
   }, []);
 
   return (
-    <section className="products-sec">
+    <section className="products-sec" id="products">
       <div className={`cart-column ${cartPosition}`} ref={cartRef}>
         <Cart
           products={allProducts}
@@ -182,6 +177,29 @@ export default function Products({ quantities, setQuantities }) {
                 ? `تومان ${selectedProduct.price.toLocaleString()}`
                 : "ناموجود ❌"}
             </span>
+
+            <div className="button-container modal-btns">
+              {selectedProduct.available && (
+                <>
+                  <button onClick={() => addBtn(selectedProduct._id)}>
+                    <span className="material-symbols-outlined">
+                      add_circle
+                    </span>
+                  </button>
+
+                  {quantities[selectedProduct._id] > 0 && (
+                    <>
+                      <span>{quantities[selectedProduct._id]}</span>
+                      <button onClick={() => subBtn(selectedProduct._id)}>
+                        <span className="material-symbols-outlined">
+                          do_not_disturb_on
+                        </span>
+                      </button>
+                    </>
+                  )}
+                </>
+              )}
+            </div>
           </div>
         </div>
       )}
