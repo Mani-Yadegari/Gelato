@@ -99,7 +99,7 @@ export default function Login() {
                 id="phone"
                 type="tel"
                 value={phone}
-                pattern="^09\\d{9}$"
+                pattern="^(0|\+98)9\d{9}$"
                 onChange={(e) => setPhone(e.target.value)}
                 required
               />
