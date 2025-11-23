@@ -7,7 +7,7 @@ export default function Home({ products, quantities, setQuantities }) {
   return (
     <>
       <Seo
-        title="خانه | کافه جلاتو"
+        title="کافه جلاتو کرج | Gelato Cafe"
         description="سفارش آنلاین انواع بستنی طبیعی، میوه‌ای و دست‌ساز از کافه جلاتو با بهترین کیفیت و مواد اولیه تازه."
         url="https://gelatocafe.ir/"
         schema={{

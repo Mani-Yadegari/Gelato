@@ -1,41 +1,58 @@
-.gelato-banner {
+.hero-image {
   width: 100%;
   display: flex;
   justify-content: center;
 }
-.gelato-banner > a {
+
+.hero-image > a {
   width: 100%;
   display: flex;
   justify-content: center;
 }
-.gelato-banner > a > img {
+
+/* برای کنترل عرض بنر در حالت‌های مختلف */
+.hero-image picture {
   width: 75%;
+  display: block;
   border-radius: 10px;
-  box-shadow: 0 0 10px #00000067;
+  overflow: hidden;
   transition: all ease 0.2s;
+  box-shadow: 0 0 10px #00000067;
 }
-.gelato-banner > a > img:hover {
+
+/* تصویر همیشه فیت کامل در کانتینر */
+.hero-image picture img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.hero-image picture:hover {
   transform: scale(1.01);
   box-shadow: 0 0 20px #0000008f;
 }
+
+/* Responsive breakpoints */
 @media (max-width: 1200px) {
-  .gelato-banner > a > img {
+  .hero-image picture {
     width: 85%;
   }
 }
+
 @media (max-width: 1000px) {
-  .gelato-banner > a > img {
+  .hero-image picture {
     width: 90%;
   }
 }
+
 @media (max-width: 800px) {
-  .gelato-banner > a > img {
+  .hero-image picture {
     width: 95%;
   }
 }
+
 @media (max-width: 700px) {
-  .gelato-banner > a > img {
+  .hero-image picture {
     width: 98%;
-    /* height: 170px; */
   }
 }

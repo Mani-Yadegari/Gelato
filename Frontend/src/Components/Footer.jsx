@@ -27,7 +27,7 @@ export default function Footer() {
         </div>
         <div className="right">
           <h2>
-            کافه جلاتریا
+            کافه جلاتو
             <span className="material-symbols-outlined">storefront</span>
           </h2>
           <ul>
@@ -76,7 +76,7 @@ export default function Footer() {
         </div>
       </div>
       <div className="bottom">
-        <p>.تمامی حقوق مادی و معنوی برای جلاتریا محفوظ است ©</p>
+        <p>.تمامی حقوق مادی و معنوی برای کافه جلاتو محفوظ است ©</p>
       </div>
     </footer>
   );
