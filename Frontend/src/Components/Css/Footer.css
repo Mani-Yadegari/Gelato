@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Yekan&display=swap");
+
 footer {
   display: flex;
   flex-direction: column;
@@ -7,6 +9,8 @@ footer {
   background-color: #201f1f;
   border-top: 1px solid #ffffff30;
   box-sizing: border-box;
+  min-height: 550px; /* ارتفاع ثابت */
+  font-family: "Yekan", sans-serif;
 }
 
 footer > .footer-container {
@@ -21,7 +25,7 @@ footer > .footer-container {
   flex-wrap: wrap;
 }
 
-/* بخش چپ (لوگو و نقشه) */
+/* بخش چپ */
 footer > .footer-container > .left {
   width: 45%;
   display: flex;
@@ -35,7 +39,6 @@ footer > .footer-container > .left > .title {
   flex-direction: column;
   align-items: end;
   color: #fff;
-  font-family: Yekan;
   gap: 5px;
   text-align: right;
 }
@@ -55,15 +58,17 @@ footer > .footer-container > .left > .title > p {
   color: #dcdcdc;
 }
 
-footer > .footer-container > .left > iframe {
-  border-radius: 12px;
-  border: none;
+/* iframe */
+footer .map-wrapper {
   width: 100%;
-  height: 250px;
+  height: 250px !important;
   box-shadow: 0 0 8px #00000055;
+  border-radius: 12px;
+  overflow: hidden;
+  border: none;
 }
 
-/* بخش راست (لینک‌ها و تماس) */
+/* بخش راست */
 footer > .footer-container > .right {
   width: 50%;
   display: flex;
@@ -74,7 +79,6 @@ footer > .footer-container > .right {
 }
 
 footer > .footer-container > .right > h2 {
-  font-family: Yekan;
   font-size: 26px;
   display: flex;
   align-items: center;
@@ -97,12 +101,11 @@ footer > .footer-container > .right > ul > li {
 
 footer > .footer-container > .right > ul > li > a {
   font-size: 18px;
-  font-family: Yekan;
   font-weight: bold;
   color: #fff;
   text-decoration: none;
   position: relative;
-  transition: all ease 0.3s;
+  transition: all 0.3s ease;
 }
 
 footer > .footer-container > .right > ul > li > a::after {
@@ -114,10 +117,6 @@ footer > .footer-container > .right > ul > li > a::after {
   height: 2px;
   background-color: #3d81ce;
   transition: width 0.3s ease;
-}
-
-footer > .footer-container > .right > ul > li > a:hover {
-  color: #3d81ce;
 }
 
 footer > .footer-container > .right > ul > li > a:hover::after {
@@ -139,7 +138,6 @@ footer > .footer-container > .right > .contact > h2 {
   gap: 5px;
   justify-content: center;
   align-items: center;
-  font-family: Yekan;
   font-size: 24px;
 }
 
@@ -153,7 +151,6 @@ footer > .footer-container > .right > .contact > .social {
 footer > .footer-container > .right > .contact > .social > button {
   background-color: #fff;
   color: #000;
-  font-family: sans-serif;
   font-size: 15px;
   display: flex;
   align-items: center;
@@ -165,7 +162,7 @@ footer > .footer-container > .right > .contact > .social > button {
   width: 140px;
   padding: 0 12px;
   cursor: pointer;
-  transition: all ease 0.25s;
+  transition: all 0.25s ease;
   box-shadow: 0 0 5px #00000030;
 }
 
@@ -175,8 +172,7 @@ footer > .footer-container > .right > .contact > .social > button:hover {
 }
 
 footer > .footer-container > .right > .contact > .social > button > img {
-  width: 28px;
-  height: 28px;
+  display: block;
 }
 
 /* بخش پایینی کپی‌رایت */
@@ -186,7 +182,6 @@ footer > .bottom {
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  font-family: Yekan;
   font-weight: bold;
   font-size: 16px;
   color: #f5f5f5;
@@ -202,19 +197,10 @@ footer > .bottom {
     text-align: center;
     gap: 40px;
   }
-  footer > .footer-container > .left > .title h2 {
-    font-size: 22px;
-  }
-  footer > .footer-container > .left > .title > p {
-    font-size: 17px;
-  }
   footer > .footer-container > .left,
   footer > .footer-container > .right {
     width: 100%;
     align-items: center;
-  }
-  footer > .footer-container > .right h2 {
-    font-size: 22px;
   }
   footer > .footer-container > .right > ul {
     align-items: center;
@@ -222,20 +208,12 @@ footer > .bottom {
   footer > .footer-container > .right > .contact {
     align-items: center;
   }
-  footer > .footer-container > .right > .contact h2 {
-    font-size: 22px;
-  }
-
-  footer > .footer-container > .right > .contact .social {
-    align-items: center;
-    justify-content: center;
-  }
   footer > .bottom {
     justify-content: center;
     padding: 10px 20px;
-    text-align: center;
   }
 }
+
 @media (max-width: 492px) {
   footer > .footer-container {
     padding: 30px;
