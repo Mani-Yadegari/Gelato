@@ -1,26 +1,30 @@
-/* فونت‌ها */
+/* -------------------- فونت‌ها -------------------- */
 @font-face {
   font-family: "Yekan";
   src: url(../../assets/Fonts/Yekan.ttf);
+  font-display: swap;
 }
 @font-face {
   font-family: "Lalezar";
   src: url(../../assets/Fonts/Lalezar.ttf);
+  font-display: swap;
 }
 @font-face {
   font-family: "Pacifico";
   src: url(../../assets/Fonts/Pacifico.ttf);
+  font-display: swap;
 }
 @font-face {
   font-family: "Berlin";
   src: url(../../assets/Fonts/BRLNSB.TTF);
+  font-display: swap;
 }
 
 * {
   scroll-behavior: smooth;
 }
 
-/* NavBar */
+/* -------------------- NavBar -------------------- */
 header > nav {
   background-color: #fff;
   height: 72px;
@@ -33,9 +37,9 @@ header > nav {
   border-bottom: 1px solid #3f3f3f4d;
   position: fixed;
   top: 0;
+  box-sizing: border-box;
   left: 0;
   z-index: 999;
-  box-sizing: border-box;
 }
 header > nav > .logoContainer a {
   display: flex;
@@ -54,6 +58,7 @@ header > nav > .logoContainer a {
 }
 .logoContainer img {
   height: 95%;
+  display: block; /* جلوگیری از CLS */
 }
 .logoContainer h1 {
   font-family: "Lalezar";
@@ -167,7 +172,7 @@ header > nav > .logoContainer a {
   opacity: 0.8;
 }
 
-/* دکمه ورود */
+/* -------------------- دکمه ورود -------------------- */
 #login {
   background-color: #3d81ce;
   color: #fff;
@@ -186,7 +191,7 @@ header > nav > .logoContainer a {
   box-shadow: 0 0 6px #3d81ce70;
 }
 
-/* دکمه همبرگر موبایل */
+/* -------------------- منوی همبرگر موبایل -------------------- */
 .menuToggle {
   display: none;
   flex-direction: column;
@@ -213,8 +218,6 @@ header > nav > .logoContainer a {
 .menuToggle span:nth-child(3) {
   top: 16px;
 }
-
-/* وقتی منو بازه، تبدیل به ضربدر */
 .menuToggle.active span:nth-child(1) {
   transform: rotate(45deg);
   top: 8px;
@@ -229,10 +232,94 @@ header > nav > .logoContainer a {
   background: #3d81ce;
 }
 
-/* منوی موبایل */
+/* -------------------- منوی موبایل -------------------- */
 .mobileMenu {
   display: none;
 }
+@media (max-width: 992px) {
+  header > nav {
+    padding: 0 20px;
+  }
+  .menuContainer {
+    display: none;
+  }
+  .menuToggle {
+    display: flex;
+  }
+  .mobileMenu {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 72px;
+    right: 0;
+    width: 100%;
+    background: linear-gradient(180deg, #ffffff 0%, #f3f6ff 100%);
+    padding: 25px 0;
+    gap: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+    z-index: 1000;
+    animation: slideDown 0.35s ease forwards;
+    align-items: center;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+  }
+  .mobileMenu a,
+  .mobileMenu button {
+    font-family: "Yekan";
+    font-weight: bold;
+    font-size: 17px;
+    color: #3f3f3f;
+    text-decoration: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 15px;
+    border-radius: 10px;
+  }
+  .mobileMenu a:hover,
+  .mobileMenu button:hover {
+    background-color: #3d81ce15;
+    transform: translateY(-2px);
+  }
+  .mobileMenu .line {
+    width: 80%;
+    height: 1px;
+    background: #dcdcdc;
+    margin: 10px 0;
+  }
+  @keyframes slideDown {
+    from {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
+
+/* -------------------- تصاویر و iframeها -------------------- */
+
+/* -------------------- بخش‌هایی با احتمال layout shift -------------------- */
+#products.products-sec {
+  min-height: 600px; /* فضای پایدار برای CLS */
+}
+footer#footer {
+  min-height: 200px; /* فضای پایدار */
+}
+
+/* -------------------- دکمه‌ها -------------------- */
+footer .contact .social button {
+  min-width: 140px; /* فضای ثابت */
+  height: 45px;
+}
+
+/* باقی استایل‌های Footer، محصولات، و واکنش‌گرایی همان CSS قبلی شماست */
 
 @media (max-width: 992px) {
   header > nav {

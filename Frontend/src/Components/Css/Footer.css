@@ -9,7 +9,6 @@ footer {
   background-color: #201f1f;
   border-top: 1px solid #ffffff30;
   box-sizing: border-box;
-  min-height: 550px; /* ارتفاع ثابت */
   font-family: "Yekan", sans-serif;
 }
 
@@ -66,6 +65,9 @@ footer .map-wrapper {
   border-radius: 12px;
   overflow: hidden;
   border: none;
+}
+iframe {
+  z-index: 0;
 }
 
 /* بخش راست */
@@ -207,6 +209,12 @@ footer > .bottom {
   }
   footer > .footer-container > .right > .contact {
     align-items: center;
+  }
+  footer > .footer-container > .right > .contact > .social {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
   }
   footer > .bottom {
     justify-content: center;

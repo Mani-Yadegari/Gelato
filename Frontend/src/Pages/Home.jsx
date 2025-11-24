@@ -8,16 +8,23 @@ export default function Home({ products, quantities, setQuantities }) {
     <>
       <Seo
         title="کافه جلاتو کرج | Gelato Cafe"
-        description="سفارش آنلاین انواع بستنی طبیعی، میوه‌ای و دست‌ساز از کافه جلاتو با بهترین کیفیت و مواد اولیه تازه."
+        description="کافه جلاتو کرج – بستنی ایتالیایی و دسرهای خاص با ارسال سریع. سفارش آنلاین انواع بستنی طبیعی، میوه‌ای و دست‌ساز."
         url="https://gelatocafe.ir/"
         schema={{
           "@context": "https://schema.org",
           "@type": "IceCreamShop",
-          name: "Gelato Cafe",
+          name: "کافه جلاتو",
+          alternateName: "Gelato Cafe",
           telephone: "09123456789",
+          image: "https://gelatocafe.ir/images/Banner.png",
+          logo: "https://gelatocafe.ir/images/Logo.png",
+          priceRange: "$$",
+          servesCuisine: "Gelato, Ice Cream, Dessert",
           address: {
             "@type": "PostalAddress",
+            streetAddress: "بلوار ملاصدرا",
             addressLocality: "Karaj",
+            addressRegion: "Alborz",
             addressCountry: "IR",
           },
         }}
