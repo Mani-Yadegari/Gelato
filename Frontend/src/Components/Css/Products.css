@@ -9,6 +9,7 @@
   box-sizing: border-box;
   gap: 20px;
   flex-wrap: nowrap;
+  min-height: 200px;
 }
 
 /* 🛒 ستون سبد خرید */
@@ -287,6 +288,7 @@
   cursor: pointer;
   box-shadow: 0px 0px 15px #00000059;
   transition: all ease 0.2s;
+  z-index: 99;
 }
 .cart-btn:hover {
   background-color: #0f69bd;

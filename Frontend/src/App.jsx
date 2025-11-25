@@ -130,7 +130,7 @@ function App() {
         </Route>
       </Routes>
 
-      {!hideLayout && <Footer />}
+      {!hideLayout && <Footer user={user} />}
     </>
   );
 }

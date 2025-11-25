@@ -85,6 +85,7 @@ section > .container > .null > p {
   font-size: 18px;
   font-weight: bold;
   color: #555;
+  direction: rtl;
 }
 
 /* لیست آیتم‌ها */

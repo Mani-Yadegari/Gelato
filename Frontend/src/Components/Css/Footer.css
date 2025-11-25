@@ -66,9 +66,6 @@ footer .map-wrapper {
   overflow: hidden;
   border: none;
 }
-iframe {
-  z-index: 0;
-}
 
 /* بخش راست */
 footer > .footer-container > .right {
@@ -124,8 +121,43 @@ footer > .footer-container > .right > ul > li > a::after {
 footer > .footer-container > .right > ul > li > a:hover::after {
   width: 100%;
 }
+footer > .footer-container > .right > ul > li > button {
+  font-size: 18px;
+  font-weight: bold;
+  color: #fff;
+  text-decoration: none;
+  position: relative;
+  background-color: transparent;
+  font-family: "Yekan";
+  border: none;
+  outline: none;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+footer > .footer-container > .right > ul > li > button::after {
+  content: "";
+  position: absolute;
+  bottom: -3px;
+  right: 0;
+  width: 0%;
+  height: 2px;
+  background-color: #3d81ce;
+  transition: width 0.3s ease;
+}
+footer > .footer-container > .right > ul > li > button:hover::after {
+  width: 100%;
+}
 
 /* بخش تماس و شبکه‌های اجتماعی */
+footer > .footer-container > .right .namad {
+  display: flex;
+  width: 100%;
+  justify-content: end;
+  border-top: 1px #aaaaaa48 solid;
+}
+footer > .footer-container > .right .namad img {
+  width: 100px;
+}
 footer > .footer-container > .right > .contact {
   display: flex;
   flex-direction: column;
@@ -189,6 +221,107 @@ footer > .bottom {
   color: #f5f5f5;
   box-sizing: border-box;
 }
+/* مودال مشابه تم محصولات */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+  animation: fadeIn 0.3s ease;
+}
+
+.support-modal {
+  background: #fff;
+  border-radius: 16px;
+  padding: 25px;
+  width: 90%;
+  height: auto;
+  max-width: 400px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  position: relative;
+  font-family: Yekan;
+  animation: scaleIn 0.3s ease;
+}
+.support-modal img {
+  width: 200px;
+}
+.support-modal h2 {
+  font-family: Lalezar;
+  font-size: 24px;
+  font-weight: 500;
+  margin-bottom: 15px;
+}
+
+.support-modal p {
+  color: #575757;
+  margin-bottom: 20px;
+  font-size: 16px;
+  direction: rtl;
+}
+.support-modal .rules-text {
+  height: 380px;
+  overflow: auto;
+}
+.contact-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.contact-buttons a {
+  display: block;
+  padding: 10px;
+  background-color: #1278d8;
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: bold;
+  transition: all 0.2s ease;
+}
+
+.contact-buttons a:hover {
+  background-color: #0f69bd;
+}
+
+.close-btn {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  background: transparent;
+  border: none;
+  font-size: 22px;
+  cursor: pointer;
+  color: #444;
+  transition: all ease 0.3s;
+}
+
+.close-btn:hover {
+  color: #cf0e0e;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    transform: scale(0.9);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
 
 /* 📱 واکنش‌گرایی */
 @media (max-width: 992px) {
@@ -206,6 +339,9 @@ footer > .bottom {
   }
   footer > .footer-container > .right > ul {
     align-items: center;
+  }
+  footer > .footer-container > .right .namad {
+    justify-content: center;
   }
   footer > .footer-container > .right > .contact {
     align-items: center;
